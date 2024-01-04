@@ -1,0 +1,180 @@
+<html>
+	<head>
+		<title>akll | Biological Systems Modelling with Julia Part 2 - PDEs</title>
+		<link rel="stylesheet" href="../styles.css">
+	</head>
+	<body>
+	<nav>
+		<div id="navlinks">
+			<a href="../index.html">Home</a>|<div class
+				="dropdown"><a href="../blog.html">Blog</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Computer Science</a></li>
+					<li><a href="">Biology</a></li>
+					<li><a href="">Technology</a></li>
+					<li><a href="">Life</a></li>
+					</ul>
+				</div>
+			</div>|<div class
+				="dropdown"><a href="../projects.html">Projects</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Programming</a></li>
+					<li><a href="">Linux</a></li>
+					</ul>
+				</div>
+			</div>|<a href="../contact.html">Contact</a>
+			<input id="site-search" type="search" placeholder="Search..">
+		</div>
+	</nav>
+	<aside>
+		<h1> Aaron Lee </h1>
+		<p>Hello! My name is Aaron. I study Computer Systems Engineering at the University of Warwick.</p>
+		<p>My passions include all things computers and biology, reading books, and learning languages&mdash;I
+		have studied French in the past and am currently learning Japanese.</p>
+		<p>I love to make interesting and useful creations&mdash;be it art or food or 
+		software&mdash;and often find inspiration for such endeavours on a hike in the sun.</p>
+	</aside>
+	<article>
+		<div class="box" id="box">
+			<h1> 
+				Biological Systems Modelling with Julia #2&mdash;PDEs<span class="blue">&#9646;</span><span class="green">&#9646;</span><span class="yellow">&#9646;</span><span class="red">&#9646;</span>
+			</h1>
+			<div class="article-content">
+				<hr><details open><summary>2023-12-31<hr></summary></h2>
+				<p>Shwmae!</p>
+				<p>
+					<a href="2023-10-11.html">Last time</a> we modelled the toggle switch using ODEs with 
+					ModelingToolkit.jl and DifferentialEquations.jl.
+				</p>
+				<p>
+					Today we will be modelling a population over 2 dimensions: time and space, using partial differential equations!
+				</p>
+				</details>
+				<br><hr><details open><summary>PDEs?<hr></summary>
+				<p>
+					Partial Differential Equations (PDEs) are differential equations with more than a single 
+					independent variable (as opposed to ordinary differential equations which have only one).
+				</p><p>
+					This makes them able to model spatio-temporal models&mdash;where the model is sensitive to
+					changes in both space and time. A good example of where PDEs are useful is in modelling 
+					population dynamics.
+				</p>
+				</details>
+				<br><hr><details open><summary>Creating the Model<hr></summary>
+				<p>
+					Import libraries used for modelling&mdash;<code>MethodOfLines</code> is used for converting
+					systems of PDEs into systems of ODEs to be solved. It provides the <code>discretize</code> 
+					function for this purpose. 
+					<div class = "codeblock"><code><pre>
+using ModelingToolkit, DifferentialEquations, MethodOfLines
+</div></pre></code>
+				</p>
+				<p>
+					Declare our variables and parameters:
+					<div class = "codeblock"><code><pre>
+@parameters x t        # x (distance) and t (time) are considered parameters
+@variables u(..) A(..) # .. is used for multiple arguments
+Dt = Differential(t)   # Use Dt instead of just D; possibly more variables
+</div></pre></code>
+				</p>
+				<p>
+					Define the function representing the initial population distribution:
+					<div class = "codeblock"><code><pre>
+u0(x) = 0.25sin(x)
+</div></pre></code>
+				</p>
+				<p>Set k to be 0.5 and define our system of equations:
+					<div class = "codeblock"><code><pre>
+k = 0.5
+
+eqs = [
+        A(t,x) ~ 300 + 100cos(2pi*x/50),
+        Dt(u(t,x)) ~ k * u(t,x) * (A(t,x) - u(t,x))
+]
+</div></pre></code>
+				</p>
+				<p>
+					Define the domains and boundary conditions for our system:
+					<div class = "codeblock"><code><pre>
+domains = [
+        t ∈ (0.0, 10.0),
+        x ∈ (0.0, 1.0)
+]
+bcs = [
+        u(0,x) ~ u0(x)
+]
+</code></pre></div>
+				</p>
+				<p>
+					Now all that's left is to solve the system:
+<div class="codeblock"><code><pre>
+@named pdesys = PDESystem(eqs,bcs,domains,[t,x],[u(t,x),A(t,x)]) # create system
+discretisation = MOLFiniteDifference([x=>32], t)                 # convert to ODEs
+prob = discretize(pdesys, discretisation)                        #
+sol = solve(prob, Tsit5())                                       # solve system
+</pre></code></div>
+				</p>
+				<h2>Analysis of Results</h2>
+				<p>
+					Unfortunately at the time of writing, <code>MethodOfLines</code> has an error due to an 
+					upstream dependency (namely the use of <code>issymbollike</code>) so at this time we cannot
+					quite do much useful with the results. There is an 
+					<a href="https://github.com/SciML/MethodOfLines.jl/pull/346">open commit</a> for a fix however, 
+					so I will update the article when the commit is pushed.
+				</p>
+				<p>
+					In the meantime, see <a href="https://docs.sciml.ai/MethodOfLines/stable/tutorials/brusselator/#Extracting-results">
+					the docs</a> for an idea of what it could look like.
+				</p>
+				</details>
+
+				<br>
+				<hr>
+				<h2>Full text of code:</h2>
+				<hr>
+				<details><summary>population.jl</summary>
+				<p>
+					<div class="codeblock"><code><pre>
+using ModelingToolkit, DifferentialEquations, MethodOfLines, Plots
+
+@parameters x t        # x (distance) and t (time) are considered parameters
+@variables u(..) A(..) # .. is used for multiple arguments
+Dt = Differential(t)   # Use Dt instead of just D; possibly more variables
+
+# Initial population distribution
+u0(x) = 0.25sin(x)
+
+k = 0.5 # Growth rate
+
+eqs = [
+    A(t,x) ~ 300 + 100cos(2pi*x/50),
+    Dt(u(t,x)) ~ k * u(t,x) * (A(t,x) - u(t,x))
+]
+domains = [
+    t ∈ (0.0, 10.0),
+    x ∈ (0.0, 1.0)
+]
+bcs = [
+    u(0,x) ~ u0(x),
+]
+@named pdesys = PDESystem(eqs,bcs,domains,[t,x],[u(t,x),A(t,x)]) # create system
+discretisation = MOLFiniteDifference([x=>32], t)                 # convert to ODEs
+prob = discretize(pdesys, discretisation)                        #
+sol = solve(prob, Tsit5())                                       # solve system
+</code></pre></div>
+				</p>
+				</details>
+			</div>
+			<br><br>
+		</div>
+	</article>
+	<footer>
+		<p>&copy; 2023&mdash;<script>document.write(/\d{4}/.exec(Date())[0])</script>
+		Aaron&nbsp;K&#8209;L&nbsp;Lee | Coventry | UK</p>
+	</footer>
+	</body>
+</html>

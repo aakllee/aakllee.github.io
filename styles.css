@@ -1,0 +1,227 @@
+:root {
+	--bg-dark: #181825;
+	--bg-darkish: #383855;
+	--fg-dark: #eff1f5;
+	--bg-light: #fefefe;
+	--fg-light: #181825;
+	# --bg-lightish: #e6e7ef;
+	--bg-lightish: #fbfbff;
+	--fg-lightish: var(--bg-light);
+	--bg-mid: #ccd0da;
+	--bg-midish: #acb0ba;
+	--fg-mid: #5c5f77;
+	--bg-search: #e6e7ef;
+
+	--red: #e78282;
+	--green: #a6d189;
+	--yellow: #e5c890;
+	--blue: #8caaee;
+}
+@font-face {
+	font-family: atkinson;
+	src: url("fonts/AtkinsonHyperlegible-Regular.ttf");
+}
+@font-face {
+	font-family: RobotoSlab;
+	src: url("fonts/RobotoSlab-VariableFont_wght.ttf");
+}
+
+h1,h2,h3,nav a { font-family: RobotoSlab; }
+a { color: inherit; }
+.codeblock { 
+	font-family: monospace; 
+	background: var(--bg-light);
+	color: var(--fg-light);
+	padding: 0 1em 0 1em;
+	margin: 0;
+	border: 1px solid var(--bg-darkish);
+	width: 90%;
+	overflow-x: scroll;
+}
+
+body {
+	background: var(--bg-light);
+	color: var(--fg-light);
+	font-family: Atkinson, sans-serif, sans;
+	font-size: 1em;
+	padding: 2.6em 2em 0em 18.5em;
+	top: 0;
+	margin: 0;
+	max-width: 100%;
+	height: calc(100% - 2.6em);
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+nav {
+	# background: var(--bg-mid);
+	background: var(--bg-darkish);
+	# color: var(--fg-mid);
+	color: var(--fg-darkish);
+	# border-bottom: 1px solid var(--bg-midish);
+	border-bottom: 1px solid var(--bg-dark);
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 3em;
+	z-index: 3;
+	filter: drop-shadow(0.1em 0.1em 0.2em black);
+}
+nav #navlinks {
+	color: var(--fg-mid);
+	margin: 0.85em 1em 0.8em 19em;
+}
+nav #site-search {
+	float: right;
+	width: 20%; 
+	background: var(--bg-search);
+}
+nav a {
+	# background: var(--bg-mid);
+	# color: var(--fg-mid); 
+	color: var(--fg-dark);
+	padding: 0.5em
+}
+nav a:hover { filter: brightness(90%); }
+
+.dropdown {
+	display: inline-block;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background: var(--bg-darkish);
+	margin-top: 0.5em;
+	z-index: 1;
+	filter: drop-shadow(0em 0em 0.15em black);
+}
+.dropdown:hover .dropdown-content, .dropdown-content:hover {
+	display: block;
+}
+.dropdown ul {
+	padding-left: 0.75em;
+}
+.dropdown li {
+	list-style-type: square;
+	list-style-position: inside;
+	padding: 0.5em;
+	margin: -0.5em;
+}
+ul li { list-style-type: square; }
+
+aside {
+	background: var(--bg-dark);
+	color: var(--fg-dark);
+	border-right: 1px solid black; # var(--bg-darkish);
+	position: fixed;
+	left: 0; 
+	top: 0;
+	width: 15em;
+	height: 100%;
+	padding: 1em 1.5em 1em 1em;
+	z-index: 10;
+	filter: drop-shadow(0em 0em 0.2em black);
+}
+article {
+	width: 99%;
+	height: auto;
+	padding: 0;
+}
+article details summary {
+	font-family: RobotoSlab;
+	font-size: 1em;
+	font-weight: 600;
+}
+article img { 
+	width: 90%; 
+	min-width: 25em;
+	border: 1px solid var(--bg-darkish);
+	margin-bottom: 1em;
+}
+article h1 {
+	background: var(--bg-darkish);
+	color: var(--fg-dark);
+	border: 1px solid var(--bg-dark);
+	width: 100%;
+	padding: 0.25em;
+	filter: drop-shadow(0.1em 0.1em 0.15em grey);
+	padding-left: 0.5em;
+	padding-right: 0.4em;
+	margin: 0;
+	font-size: 1.2em;
+}
+.article-content {
+	padding-left: 0.75em;
+}
+.article-content p {
+	padding-right: 20%;
+}
+.article-content h2 {
+	font-size: 1em;
+}
+.article-content ul {
+	margin-top: 0em;
+}
+.red, .green, .yellow, .blue { float: right; }
+.red{ color: var(--red); }
+.green { color: var(--green); }
+.yellow { color: var(--yellow); }
+.blue { color: var(--blue); }
+.box {	
+	display: inline-block;
+	width: 100%;
+	padding: 0.2em 1.45em 0.2em 0.2em;
+	height: 100%;
+	margin: 0;
+	margin-bottom: 1.5em;
+	background: var(--bg-lightish);
+	border: 1px solid var(--bg-darkish);
+	filter: drop-shadow(0em 0em 0.15em grey);
+	overflow-y: scroll;
+}
+footer {
+	position: absolute;
+	color: var(--bg-midish);
+	right: 0;
+	bottom: 0;
+	height: 30em;
+	width: 1em;
+	z-index: 15;
+	font-size: 0.5em;
+	padding: 0;
+	margin-right: -1em;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+}
+footer * { float: right; }
+
+@media only screen and (max-width: 60em) {
+	html, body {
+		max-width: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	body {
+		max-height: 100%;
+		padding: 2.6em 0em 0em 0em;
+	}
+	article h1 {
+		width: calc(100% - 0.85em);
+		margin: 0;
+		border-left: 0;
+		border-right: 0;
+	}
+	aside {
+		display: none;
+	}
+	nav #site-search {
+		float: right;
+		width: 30%;
+	}
+	nav #navlinks {
+		margin: 0.85em 0.25em 0.8em 0.25em;
+	}
+	footer {
+		display: none;
+	}	
+}

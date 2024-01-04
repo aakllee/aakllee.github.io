@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>akll | How to Close the Sidebar</title>
+		<link rel="stylesheet" href="../styles.css">
+	</head>
+	<body>
+	<nav>
+		<div id="navlinks">
+			<a href="../index.html">Home</a>|<div class
+				="dropdown"><a href="../blog.html">Blog</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Computer Science</a></li>
+					<li><a href="">Biology</a></li>
+					<li><a href="">Technology</a></li>
+					<li><a href="">Life</a></li>
+					</ul>
+				</div>
+			</div>|<div class
+				="dropdown"><a href="../projects.html">Projects</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Programming</a></li>
+					<li><a href="">Linux</a></li>
+					</ul>
+				</div>
+			</div>|<a href="../contact.html">Contact</a>
+			<input id="site-search" type="search" placeholder="Search..">
+		</div>
+	</nav>
+	<aside>
+		<h1> Aaron Lee </h1>
+		<p>Hello! My name is Aaron. I study Computer Systems Engineering at the University of Warwick.</p>
+		<p>My passions include all things computers and biology, reading books, and learning languages&mdash;I
+		have studied French in the past and am currently learning Japanese.</p>
+		<p>I love to make interesting and useful creations&mdash;be it art or food or 
+		software&mdash;and often find inspiration for such endeavours on a hike in the sun.</p>
+	</aside>
+	<article>
+		<div class="box" id="box">
+			<h1> 
+				How to Close the Sidebar<span class="blue">&#9646;</span><span class="green">&#9646;</span><span class="yellow">&#9646;</span><span class="red">&#9646;</span>
+			</h1>
+			<div class="article-content">
+				<h2>2023-06-15</h2>
+				<hr>
+				<p>Hello! This marks the first "post" (more of a test than anything) on my site. Cue confetti cannons.</p>
+				<p>If you are using a landscape oriented screen, you may have noticed the large black 
+				box taking up a large portion of the viewport.</p>
+				<p>Now either you don't care what it says and have proceeded to completely ignore it, 
+				or you have read it and now that it's done you want it out of your face.</p>
+				<p>But lo! There is no big red X&mdash;no <a href="#">close</a>, no <a href="#">collapse</a>!</p>
+				<p>So what to do then?</p>
+				<p>A simple solution is to inspect element and delete the <code>&lt;aside&gt;...&lt;/aside&gt;</code>. Firefox's element picker is 
+				especially convenient here (Ctrl+Shift+c).</p>
+				<p>You might also choose to force portrait mode by editing the <code>@media</code> check for screen size
+				to be larger than your screen.</p>
+				<p>Neither of these, however, persist across pages or reloads. So what now?</p>
+				<p>We could use uBlock Origin's element picker to do much the same thing, but this time persisting. This, however, 
+				requires the use of a third-party extension&mdash;and we don't like those here.</p>
+				<p>Firefox has a css file somewhere in ~/.mozilla where you can specify css to be injected into websites. 
+				You could write such a rule for this site, and have <code>display: hidden;</code>
+				<p>Point is, doing such a thing server-side would make the page load all the more slower for people on potato devices
+				and therefore less accessible to much of the world. Thus I offload the effort to the client-side devices.</p>
+				<p>Call it a lesson in hacker spirit (as in hacky solutions (not cybercrime)).</p>
+			</div>
+		</div>
+	</article>
+	<footer>
+		<p>&copy; 2023&mdash;<script>document.write(/\d{4}/.exec(Date())[0])</script>
+		Aaron&nbsp;K&#8209;L&nbsp;Lee | Coventry | UK</p>
+	</footer>
+	</body>
+</html>
