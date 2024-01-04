@@ -57,7 +57,7 @@ nav {
 	background: var(--bg-darkish);
 	# color: var(--fg-mid);
 	color: var(--fg-darkish);
-	# border-bottom: 1px solid var(--bg-midish);
+	# order-bottom: 1px solid var(--bg-midish);
 	border-bottom: 1px solid var(--bg-dark);
 	width: 100%;
 	position: fixed;
@@ -177,7 +177,8 @@ article h1 {
 	background: var(--bg-lightish);
 	border: 1px solid var(--bg-darkish);
 	filter: drop-shadow(0em 0em 0.15em grey);
-	overflow-y: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 footer {
 	position: absolute;
