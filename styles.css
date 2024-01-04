@@ -36,7 +36,7 @@ a { color: inherit; }
 	margin: 0;
 	border: 1px solid var(--bg-darkish);
 	width: 90%;
-	overflow-x: scroll;
+	overflow-x: auto;
 }
 
 body {
