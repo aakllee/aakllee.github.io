@@ -208,7 +208,7 @@ plot(sol, idxs = [gtr.p, gtr.m, gtr.R])
 					composed of two gene transcription repressors. The protein output of each 
 					transcription regulation system is used as a repressor for the other (remniscient
 					of an SR-latch):
-					$$ \frac{\mathrm{d} m_Lg}{\mathrm{d}t} = k_{T,1} \frac{K_T^{n_T}}{p^{n_T}_T + K^{n_T}_T} - d_{L,1} m_L $$
+					$$ \frac{\mathrm{d} m_L}{\mathrm{d}t} = k_{T,1} \frac{K_T^{n_T}}{p^{n_T}_T + K^{n_T}_T} - d_{L,1} m_L $$
 					$$ \frac{\mathrm{d} p_L}{\mathrm{d}t} = k_{L,2} m_L - d_{L,2} p_L $$
 					$$ \frac{\mathrm{d} m_T}{\mathrm{d}t} = k_{L,1} \frac{K_L^{n_L}}{p^{n_L}_L + K^{n_L}_L} - d_{T,1} m_T $$
 					$$ \frac{\mathrm{d} p_T}{\mathrm{d}t} = k_{T,2} m_T - d_{T,2} p_T $$
