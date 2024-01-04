@@ -42,7 +42,7 @@ a { color: inherit; }
 body {
 	background: var(--bg-light);
 	color: var(--fg-light);
-	font-family: Atkinson, sans-serif, sans;
+	font-family: atkinson, sans-serif, sans;
 	font-size: 1em;
 	padding: 2.6em 2em 0em 18.5em;
 	top: 0;
