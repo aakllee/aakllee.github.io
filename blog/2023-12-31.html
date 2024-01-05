@@ -2,6 +2,7 @@
 	<head>
 		<title>akll | Biological Systems Modelling with Julia Part 2 - PDEs</title>
 		<link rel="stylesheet" href="../styles.css">
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body>
 	<nav>
@@ -87,8 +88,16 @@ Dt = Differential(t)   # Use Dt instead of just D; possibly more variables
 u0(x) = 0.25sin(x)
 </div></pre></code>
 				</p>
-				<p>Set k to be 0.5 and define our system of equations. The equations here are sourced from
+				<p>Set the rate constant k to be 0.5 and define our system of equations. The equations here are sourced from
 				<a href="https://content.wolfram.com/sites/19/2012/12/Kerckhove.pdf">The Mathematica Journal 14</a>.
+				</p>
+				<p>
+				<code>A(x)</code> is written as <code>A(t,x)</code> despite <code>t</code> being unused due
+				to all independent variables being required as parameters to each function. 
+				</p>
+				<p>
+				$$-300 - 100 \cos\left( 0.12566 x \right) + A\left( t, x \right) = 0$$
+				$$\frac{\mathrm{d}}{\mathrm{d}t} u\left( t, x \right) - 0.5 \left(  - u\left( t, x \right) + A\left( t, x \right) \right) u\left( t, x \right) = 0$$
 				</p>
 					<div class = "codeblock"><code><pre>
 k = 0.5
