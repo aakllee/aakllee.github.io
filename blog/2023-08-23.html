@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<title>akll | PiCMCA</title>
+		<link rel="stylesheet" href="../styles.css">
+	</head>
+	<body>
+	<nav>
+		<div id="navlinks">
+			<a href="../index.html">Home</a>|<div class
+				="dropdown"><a href="../index.html">Blog</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Computer Science</a></li>
+					<li><a href="">Biology</a></li>
+					<li><a href="">Technology</a></li>
+					<li><a href="">Life</a></li>
+					</ul>
+				</div>
+			</div>|<div class
+				="dropdown"><a href="../index.html">Projects</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="">All</a></li>
+					<li><a href="">Programming</a></li>
+					<li><a href="">Linux</a></li>
+					</ul>
+				</div>
+			</div>|<a href="../contact.html">Contact</a>
+			<input id="site-search" type="search" placeholder="Search..">
+		</div>
+	</nav>
+	<aside>
+		<h1> Aaron Lee </h1>
+		<p>Hello! My name is Aaron. I study Computer Systems Engineering at the University of Warwick.</p>
+		<p>My passions include all things computers and biology, reading books, and learning languages&mdash;I
+		have studied French in the past and am currently learning Japanese.</p>
+		<p>I love to make interesting and useful creations&mdash;be it art or food or 
+		software&mdash;and often find inspiration for such endeavours on a hike in the sun.</p>
+	</aside>
+	<article>
+		<div class="box" id="box">
+			<h1> 
+				PiCMCA<span class="blue">&#9646;</span><span class="green">&#9646;</span><span class="yellow">&#9646;</span><span class="red">&#9646;</span>
+			</h1>
+			<div class="article-content">
+				<hr>
+				<details open><summary>2023-08-23<hr></summary>
+					<p>The Pi Compute Module Cardbus Adapter.</p>
+				</details>
+				<hr>
+				<details open><summary>Introduction<hr></summary>
+					<p>
+					The PiCMCA is a Cardbus (PCMCIA) module that uses the USB lanes of the Cardbus 
+					interface as a low-latency network connection between the host system and 
+					a Raspberry Pi.  
+					</p>
+					<p>
+					This allows for the host to act as a thin client for the Raspberry Pi, thus allowing vintage computers to act as modern computing devices. 
+					</p>
+					<p>
+						Initially I had intended to use a Compute Module 4 for this, since
+						this would allow the board to be reused for any module using the 
+						CM4 standard, but unfortunately, at the time of writing, these are
+						relatively difficult and expensive to obtain. Instead I am using a
+						Raspberry Pi Zero, though the same could be achieved with, for 
+						example, a Radxa Zero instead. 
+					</p>
+				</details>
+				<hr>
+				<details open><summary>Why?<hr></summary>
+				<p>
+					I am the happy owner of a Thinkpad x61, which is now... 14 years old.
+					It is, of course, beginning to show its age, with its fans loud as a 
+					microwave, and a battery with the lifespan of an elderly mayfly.
+				</p>
+				<p>
+					For all that, it is still in excellent condition, so I wanted to 
+					give it another chance at life. Thus I had the idea to put a computer
+					inside the computer. 
+				</p>
+
+				</details>
+				<hr>
+				<details open><summary>Plan<hr></summary>
+				<p>
+				The Pi would use the Thinkpad SSD for storage using some such magic as
+				NFS or SSHFS etc., since the SD card is obviously unsuitable for
+				anything more than the OS. Ideally I'd have the entire root filesystem
+				on the Thinkpad using PXE/netbooting, but alas my proficiency in
+				wizardry extends only so far. We might be able to have the boot
+				partition on the SD card then mount root as NFS? 
+				</p>
+				<p>
+				It's quite a mess to have the files on the client but 
+				this isn't Plan9 unfortunately so we can't just set each as CPU server and
+				File server. I was actually considering setting up Plan9
+				but I felt like that would have hindered usability to the point where
+				the whole project would have been more of a meaningless waste of time
+				and money than it already was.
+				</p><p>
+				The Zero would connect to the PCB by the USB-C and HDMI ports, and
+				would also use the GPIO pins for a headphone jack. 
+				</p>
+				<p>
+				In my research I considered a number of possible routes:
+				<ul>
+				<li>SSH X forwarding</li>
+				<li>Waypipe</li>
+				<li>XDMCP</li>
+				</ul>
+				</p>
+				</details>
+				<hr>
+				<details open><summary>Implementation<hr></summary>
+				<p>
+				<p>
+				In the end I went with XDMCP for low latency, and so that I wouldn't
+				also need to run an X server or Wayland session on the Thinkpad as
+				well as on the Pi. The lack of encryption is a non-issue since only
+				the Pi and the Thinkpad are going to be using the usb network
+				connection. For storage NFS presented itself as a decent solution. I'm
+				partial to anything Sun so it was a fairly easy decision (I'd have
+				loved to have done this on a Tadpole Sparcbook. Alas I do not have one
+				and they don't have cardbus slots anyway). 
+				</p>
+				To test that the theoretical USB interface would work, I first 
+				connected the Pi over regular USB then set up XDMCP.
+				I then designed a PCB to mount the Pi on, and designed and 3D printed a frame using Blender and my trusty Ender 3 to 
+				protect the components and provide better robustness. I used 
+				PETG filament for its high heat resistance and durability, but a more 
+				environmentally friendly solution could be to use PLA instead.
+				</p>
+				</details>
+				<hr>
+				<details open><summary>Evaluation<hr></summary>
+				<p>
+				The project definitely works, but the Pi Zero is perhaps not as 
+				powerful as I had thought. In hindsight the CM4 would have been
+				a much better choice, but alas they remain unobtainable at 
+				reasonable prices. For an even older laptop like the Thinkpad 
+				235 (with its <em>3 cardbus slots</em> and standard replaceable
+				batteries) the Zero would be a significant upgrade however, being
+				able to run modern applications such as web browsers, at not insufferable performance,
+				therefore I shall consider this project a huge success!
+				</p>
+				</details>
+
+			</div>
+		</div>
+	</article>
+	<footer>
+		<p>&copy; 2023&mdash;<script>document.write(/\d{4}/.exec(Date())[0])</script>
+		Aaron&nbsp;K&#8209;L&nbsp;Lee | Coventry | UK</p>
+	</footer>
+	</body>
+</html>
