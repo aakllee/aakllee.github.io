@@ -232,7 +232,7 @@ using DifferentialEquations:solve
 D = Differential(t) # D is a derivative with respect to t
 </pre></code></div>
 				</p>
-				<p>Define forcing functions representing inducer concentrations:
+				<p>Define forcing functions representing inducers (IPTG and Heat):
 <div class="codeblock"><code><pre>
 # toggle switch at 10 < t < 15 and 30 < t < 35
 # represents added inducers
@@ -268,7 +268,7 @@ end
 				</p>
 				<p>Then we can compose the system. This connects the two subsystems such that the protein produced
 				by each is used as the repressor for the other. This is then summed with the forcing function to
-				represent the addition of inducers:
+				represent the action of the inducers:
 <div class="codeblock"><code><pre>
 # connect the GTRs to form the toggle switch
 connections = [
