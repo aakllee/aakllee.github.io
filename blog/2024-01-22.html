@@ -49,7 +49,6 @@
 				<p>Shwmae!</p>
 				<p>
 					<a href="2023-10-11.html">Last time</a> we were messing with partial differential equations.
-					ModelingToolkit.jl and DifferentialEquations.jl.
 				</p>
 				<p>
 					This time we will be modelling the repressilator by delay differential equations (DDEs)! For simplicity's
@@ -82,9 +81,9 @@ using DifferentialEquations, Plots
 					<div class = "codeblock"><code><pre>
 function repressilator(du, u, h, p, t)
     beta, n                             # define parameters
-	du[1] = beta / (1 + u[3]^n) - u[1]  # define differential equations
-	du[2] = beta / (1 + u[1]^n) - u[2]
-	du[3] = beta / (1 + u[2]^n) - u[3]
+    du[1] = beta / (1 + u[3]^n) - u[1]  # define differential equations
+    du[2] = beta / (1 + u[1]^n) - u[2]
+    du[3] = beta / (1 + u[2]^n) - u[3]
 end
 </div></pre></code>
 				</p>
@@ -99,10 +98,10 @@ n = 4         # must be > 2 for oscillations
 				<p>
 					Define some other relevant information about the model.
 					<div class = "codeblock"><code><pre>
-p = (beta, n)        # p is a tuple representing the parameter
+p = (beta, n)        # p is a tuple representing the model parameter
 tspan = (0.0, 30.0)  # timespan to model
 u0 = [1.0, 0.0, 0.0] # initial conditions
-h(p,t) = ones(3)     # function representing the values
+h(p,t) = ones(3)     # function representing the values before t=0
 </div></pre></code>
 				</p>
 				<p>
@@ -131,25 +130,25 @@ using DifferentialEquations, Plots
 
 function repressilator(du, u, h, p, t)
     beta, n                            # define paramet
-				du[1] = beta / (1 + u[3]^n) - u[1] # define differe
-						du[2] = beta / (1 + u[1]^n) - u[2]
-								du[3] = beta / (1 + u[2]^n) - u[3]
-								end
+	du[1] = beta / (1 + u[3]^n) - u[1] # define differe
+	du[2] = beta / (1 + u[1]^n) - u[2]
+	du[3] = beta / (1 + u[2]^n) - u[3]
+end
 
-								# set parameter values
-								beta = 12     # arbitrary value I plucked from the sky
-								n = 4         # must be > 2 for oscillations
+# set parameter values
+beta = 12     # arbitrary value I plucked from the sky
+n = 4         # must be > 2 for oscillations
 
-								p = (beta, n) # p is a tuple representing the parameter
+p = (beta, n) # p is a tuple representing the model parameters
 
-								tspan = (0.0, 30.0)  # timespan to model
-								u0 = [1.0, 0.0, 0.0] # initial conditions
-								h(p,t) = ones(3)     # function representing the values
+tspan = (0.0, 30.0)  # timespan to model
+u0 = [1.0, 0.0, 0.0] # initial conditions
+h(p,t) = ones(3)     # function representing the values before t=0
 
-								# solve and plot problem
-								prob = DDEProblem(repressilator, u0, h, tspan, p)
-								plot(solve(prob))
-								gui()
+# solve and plot problem
+prob = DDEProblem(repressilator, u0, h, tspan, p)
+plot(solve(prob))
+gui()
 </code></pre></div>
 				</p>
 				</details>
