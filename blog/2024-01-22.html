@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>akll | Biological Systems Modelling with Julia Part 3 - DDEs</title>
+		<link rel="stylesheet" href="../styles.css">
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</head>
+	<body>
+	<nav>
+		<div id="navlinks">
+			<a href="../index.html">Home</a>|<div class
+				="dropdown"><a href="../index.html">Blog</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="2024-01-06.html">All</a></li>
+					<li><a href="2024-01-06.html">Computer Science</a></li>
+					<li><a href="2024-01-06.html">Biology</a></li>
+					<li><a href="2024-01-06.html">Technology</a></li>
+					<li><a href="2024-01-06.html">Life</a></li>
+					</ul>
+				</div>
+			</div>|<div class
+				="dropdown"><a href="../index.html">Projects</a>
+				<div class="dropdown-content">
+					<ul>
+					<li><a href="2024-01-06.html">All</a></li>
+					<li><a href="2024-01-06.html">Programming</a></li>
+					<li><a href="2024-01-06.html">Linux</a></li>
+					</ul>
+				</div>
+			</div>|<a href="../contact.html">Contact</a>
+			<input id="site-search" type="search" placeholder="Search..">
+		</div>
+	</nav>
+	<aside>
+		<h1> Aaron Lee </h1>
+		<p>Hello! My name is Aaron. I study Computer Systems Engineering at the University of Warwick.</p>
+		<p>My passions include all things computers and biology, reading books, and learning languages&mdash;I
+		have studied French in the past and am currently learning Japanese.</p>
+		<p>I love to make interesting and useful creations&mdash;be it art or food or 
+		software&mdash;and often find inspiration for such endeavours on a hike in the sun.</p>
+	</aside>
+	<article>
+		<div class="box" id="box">
+			<h1> 
+				Biological Systems Modelling with Julia #3&mdash;DDEs<span class="blue">&#9646;</span><span class="green">&#9646;</span><span class="yellow">&#9646;</span><span class="red">&#9646;</span>
+			</h1>
+			<div class="article-content">
+				<hr><details open><summary>2023-12-31<hr></summary></h2>
+				<p>Shwmae!</p>
+				<p>
+					<a href="2023-10-11.html">Last time</a> we were messing with partial differential equations.
+					ModelingToolkit.jl and DifferentialEquations.jl.
+				</p>
+				<p>
+					This time we will be modelling the repressilator by delay differential equations (DDEs)! For simplicity's
+					sake we'll be using a posttranslational model, unlike in part 1 where we used a posttranscriptional model.
+					It would be fairly trivial to extend this model to also consider mRNA.
+				</p>
+				</details>
+				<br><hr><details open><summary>DDEs?<hr></summary>
+				<p>
+					Delay Differential Equations (PDEs) are a type of partial differential equations where 
+					functions are defined in terms of its values at previous times. See <a href="https://en.wikipedia.org/wiki/Delay_differential_equation">wikipedia</a>
+					for more information.
+				</details>
+				<br><hr><details open><summary>Creating the Model<hr></summary>
+				<p>
+					Import libraries used for modelling. In many ways, delay differential equations are much simpler than other types of 
+					partial differential equation to solve&mdash;for both the human and the computer. We'll only be needing <code>DifferentialEquations</code>
+					and <code>Plots</code> this time around:
+					<div class = "codeblock"><code><pre>
+using DifferentialEquations, Plots
+</div></pre></code>
+				</p>
+				<p>We'll be using the equations:
+					$$ \frac{\mathrm{d} x_1}{\mathrm{d}t} = \frac{\beta}{1 + x_3^n} - x_1 $$
+					$$ \frac{\mathrm{d} x_2}{\mathrm{d}t} = \frac{\beta}{1 + x_1^n} - x_2 $$
+					$$ \frac{\mathrm{d} x_3}{\mathrm{d}t} = \frac{\beta}{1 + x_2^n} - x_3 $$
+				</p><p>
+					For now we won't be doing any kind of fancy modularisation or anything, we'll just 
+					define a function in line with typical <code>DifferentialEquations</code> usage:
+					<div class = "codeblock"><code><pre>
+function repressilator(du, u, h, p, t)
+    beta, n                             # define parameters
+	du[1] = beta / (1 + u[3]^n) - u[1]  # define differential equations
+	du[2] = beta / (1 + u[1]^n) - u[2]
+	du[3] = beta / (1 + u[2]^n) - u[3]
+end
+</div></pre></code>
+				</p>
+				<p>
+					Set some sensible parameter values for oscillations. It would be pertinent to modify these values
+					as needed for the model. Having beta = 1 and n = 2 for example, would not result in any oscillations.
+					<div class = "codeblock"><code><pre>
+beta = 12     # arbitrary value I plucked from the sky
+n = 4         # must be > 2 for oscillations
+</div></pre></code>
+				</p>
+				<p>
+					Define some other relevant information about the model.
+					<div class = "codeblock"><code><pre>
+p = (beta, n)        # p is a tuple representing the parameter
+tspan = (0.0, 30.0)  # timespan to model
+u0 = [1.0, 0.0, 0.0] # initial conditions
+h(p,t) = ones(3)     # function representing the values
+</div></pre></code>
+				</p>
+				<p>
+					Now solve and plot the system:
+<div class="codeblock"><code><pre>
+prob = DDEProblem(repressilator, u0, h, tspan, p)
+plot(solve(prob))
+gui()
+</pre></code></div>
+				</p>
+				<h2>Results</h2>
+				<p>
+					The graph produced:
+						<br><img src="../images/blog/2024-01-22/repressilator.png"></img>
+				</p>
+				</details>
+
+				<br>
+				<hr>
+				<h2>Full text of code:</h2>
+				<hr>
+				<details><summary>repressilator.jl</summary>
+				<p>
+					<div class="codeblock"><code><pre>
+using DifferentialEquations, Plots
+
+function repressilator(du, u, h, p, t)
+    beta, n                            # define paramet
+				du[1] = beta / (1 + u[3]^n) - u[1] # define differe
+						du[2] = beta / (1 + u[1]^n) - u[2]
+								du[3] = beta / (1 + u[2]^n) - u[3]
+								end
+
+								# set parameter values
+								beta = 12     # arbitrary value I plucked from the sky
+								n = 4         # must be > 2 for oscillations
+
+								p = (beta, n) # p is a tuple representing the parameter
+
+								tspan = (0.0, 30.0)  # timespan to model
+								u0 = [1.0, 0.0, 0.0] # initial conditions
+								h(p,t) = ones(3)     # function representing the values
+
+								# solve and plot problem
+								prob = DDEProblem(repressilator, u0, h, tspan, p)
+								plot(solve(prob))
+								gui()
+</code></pre></div>
+				</p>
+				</details>
+			</div>
+			<br><br>
+		</div>
+	</article>
+	<footer>
+		<p>&copy; 2023&mdash;<script>document.write(/\d{4}/.exec(Date())[0])</script>
+		Aaron&nbsp;K&#8209;L&nbsp;Lee | Coventry | UK</p>
+	</footer>
+	</body>
+</html>
