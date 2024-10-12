@@ -58,7 +58,7 @@ and at its sinister silver sheen, I wondered if the ring might be
 conductive.
 
 #+ATTR_HTML: :width 300px
-[[./images/roomkeyconductivity.webp]]
+[[https://akll.org/images/roomkeyconductivity.webp]]
 
 And so it was, thus spawning a new idea - I could use the key as a
 connection between two contacts. And when the door is opened while the
@@ -68,7 +68,7 @@ key is still there.
 * Design
 
 #+ATTR_HTML: :width 300px
-[[./images/roomkeydesign1.webp]]
+[[https://akll.org/images/roomkeydesign1.webp]]
 
 For the door contacts, my first instinct was to have a buzzer in
 series with a battery, then have the contacts in parallel with the
@@ -86,7 +86,7 @@ And it felt like it should be a relatively simple electronic circuit -
 in logic gates it would be something like:
 
 #+ATTR_HTML: :width 300px
-[[./images/roomkeydesign2.webp]]
+[[https://akll.org/images/roomkeydesign2.webp]]
 
 
 Which in theory I could make using logic gate chips such as the
@@ -98,14 +98,14 @@ And it was around this time that I was conveniently introduced to the
 magic of transistors in one of my electronics lectures, allowing me to
 draw up this little circuit here:
 #+ATTR_HTML: :width 300px
-[[./images/roomkeydesign3.webp]]
+[[https://akll.org/images/roomkeydesign3.webp]]
 
 Where with appropriate component values there should be minimal
 current flowing through the circuit when idle.
 
 So... I built it:
 #+ATTR_HTML: :width 300px
-[[./images/roomkeydemo1.mp4]]
+[[https://akll.org/images/roomkeydemo1.mp4]]
 
 And it worked, perfectly. Which is odd because normally things take
 some trial and error before they do. But it worked. 
@@ -122,9 +122,9 @@ your door looks a lot like a bomb. Who knew? Residential services
 certainly did...
 
 #+ATTR_HTML: :width 300px
-[[./images/roomkeyremember.webp]]
+[[https://akll.org/images/roomkeyremember.webp]]
 #+ATTR_HTML: :width 300px
-[[./images/roomkeykeys.webp]] 
+[[https://akll.org/images/roomkeykeys.webp]] 
 
 * Improvements
 I believe the main issue was that there was no interaction required
@@ -145,6 +145,6 @@ and the key hooks at the end of the tail. Maybe add a red LED in the
 eyes).
 
 #+ATTR_HTML: :width 300px
-[[./images/roomkeysock1.webp]]
+[[https://akll.org/images/roomkeysock1.webp]]
 #+ATTR_HTML: :width 300px
-[[./images/roomkeysock2.webp]]
+[[https://akll.org/images/roomkeysock2.webp]]
