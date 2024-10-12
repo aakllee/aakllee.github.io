@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://akll.org/rss.xml"
+      title="RSS feed for https://akll.org/">
+<title>Aaron Lee</title>
+<meta name="author" content="Aaron Lee">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1">
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<link href= "static/style.css" rel="stylesheet" type="text/css" >
+<link rel="icon" href="static/favicon.ico"></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="https://akll.org">AKLL - Aaron Lee</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "computer-science":</h1>
+<div class="post-date">03 Oct 2024</div><h1 class="post-title"><a href="https://akll.org/blog/2024-10-03-picmca.html">PiCMCA - Part #1</a></h1>
+<p>
+The Pi Compute Module Cardbus Adapter: PiCMCA, is a Cardbus (PCMCIA)
+module that uses the USB lanes of the Cardbus interface as a
+low-latency network connection between the host system and a Raspberry
+Pi compute module system-on-a-chip.
+</p>
+
+<p>
+This allows for the host laptop to act as a thin client for the
+Raspberry Pi, thus allowing vintage computers to act as modern
+computing devices.
+</p>
+
+
+<div id="outline-container-orgf22a0ce" class="outline-2">
+<h2 id="orgf22a0ce">Why?</h2>
+<div class="outline-text-2" id="text-orgf22a0ce">
+<p>
+I am the happy owner of a Thinkpad x61, which is now a grand 14 years
+old. It is, of course, beginning to show its age, with its fans loud
+as a microwave, and a battery with the lifespan of an elderly mayfly.
+</p>
+
+<p>
+For all that, it is still in excellent condition, so I wanted to give
+it another chance at life. And I would assume that there are many
+others similarly attached to their old computers who could stand to
+benefit - not to mention the potential reduction in e-waste.
+</p>
+
+<p>
+I then came across the <a href="https://geoff.greer.fm/2017/07/16/thinkpad-x62/">Thinkpad x62/x63</a>: an extreme modification to
+the x61 which supplants the original motherboard with an entirely
+custom-built motherboard with modern components.
+</p>
+
+<p>
+Sadly, these were very expensive, and available for purchase only by
+wiring money to various individuals overseas, who would then mail the
+motherboard over to you (from anecdotal data, usually taking several
+months). And difficulties with customs and legalese etc. make things
+really quite dubious.
+</p>
+
+<p>
+So, I did the natural thing, and decided to take matters into my own
+hands.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f0f2d6" class="outline-2">
+<h2 id="org4f0f2d6">Plan</h2>
+<div class="outline-text-2" id="text-org4f0f2d6">
+<p>
+In the first place, I didn't need the full processing power of a
+mobile 5GHz Intel CPU with integrated graphics and a 4K LCD screen -
+far from it; I needed only something I could use to browse the web,
+comfortably write up some documents, watch some films. And not also
+perform a secondary function as a portable stove. So if I could
+implant the Pi compute module 4 into the existing internals, that
+would be a quite apposite solution.
+</p>
+
+<p>
+The Pi would use the Thinkpad SSD for storage using a technology such
+as NFS or SSHFS, since the SD card/eMMC is unsuitable for anything
+more than the OS. Ideally I'd have the entire root filesystem on the
+Thinkpad using PXE/netbooting, but alas my proficiency in wizardry
+extends only so far. It might be possible to have the boot partition
+on the SD card then mount root as NFS, however this is an optimisation
+problem so to be tackled later on.
+</p>
+
+<p>
+It is relatively messy to have the files on the client, but unlike in
+an OS like Plan9, we can't just set each as CPU server and File
+server. I was considering setting up Plan9, but felt that it would
+have hindered usability a little too much.
+</p>
+
+<p>
+The plan was to design a standard PCB for the Pi CM4 (hence the name
+of the project), however I soon came to realise, reading the
+specification, that the height of a PCMCIA card is a quite strict
+5mm. A Pi CM4 on the other hand, is 4.78mm tall.
+</p>
+
+<p>
+So looking into what I could do there, I came across flex PCBs and
+extra thin FR4 PCBs, which have a potential depth of less than 0.20mm.
+</p>
+
+<p>
+This seemed perfect, however, I could not find any detailed
+specification for the depth of the CM4 connector itself that would be
+soldered to the PCB, which if too tall would have been very sad
+indeed. I did find that the "mounted stacking height" of the connector
+would be 1.5mm, however I was unsure if this included the connector on
+the CM4 itself - in which case the total height would be 5.11mm&#x2026;
+</p>
+
+<p>
+So I assumed that tolerances wouldn't be <i>that</i> tight and went ahead
+anyway.
+</p>
+
+<p>
+<a href="https://github.com/thagrol/Guides/blob/main/ethernetgadget.pdf">https://github.com/thagrol/Guides/blob/main/ethernetgadget.pdf</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge423d82" class="outline-2">
+<h2 id="orge423d82">Proof of Concept</h2>
+<div class="outline-text-2" id="text-orge423d82">
+<p>
+To begin with I used an off-the-shelf carrier board which breaks out
+the USB lanes, so that I would be able to test that my software stack
+would work in practice, before committing to designing my own using
+the Cardbus interface. 
+</p>
+
+<p>
+This took some quite extensive configuration, but I managed to make
+things work, running <a href="https://alpinelinux.org/">Alpine Linux</a> on both the Pi and the
+laptop. Alpine is inherently a very small and efficient operating
+system, owing to have been designed for usage in embedded systems.
+</p>
+
+<p>
+I initially considered using X-forwarding, however this would have
+resulted in needing to run two separate X11 servers, which would have
+been pointlessly inefficient.
+</p>
+
+<p>
+But eventually what I found was that the solution was in the name -
+X11 servers being <i>servers</i>, surely meant that I could run the X11
+server on the Pi and then use the laptop as solely a client. And this
+led me to <a href="https://wiki.archlinux.org/title/XDMCP">XDMCP</a> - a protocol for opening remote X sessions.
+</p>
+
+<p>
+So I installed X11 on the Pi, for which Alpine provides a very
+convenient <code>setup-xorg-script</code>, and set up XDMCP, thus giving me a
+fully functional proof of concept.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5154049" class="outline-2">
+<h2 id="org5154049">Hardware design</h2>
+<div class="outline-text-2" id="text-org5154049">
+</div>
+<div id="outline-container-org67e6def" class="outline-3">
+<h3 id="org67e6def">Plan</h3>
+<div class="outline-text-3" id="text-org67e6def">
+<p>
+I was able to use the regular Pi 4B in the proof of concept via USB
+gadget mode, which allows one to run the Pi headlessly, using the USB
+interface as a network connection to transfer data. In theory, I saw
+two paths to mimic this same connection over the Cardbus interface:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Bridge Cardbus (PCI) to USB
+</p>
+
+<p>
+I looked at existing Cardbus-USB adapters and found that they all
+seemed to use the same chip: the VT6212/VT6212L. This seemed
+promising, although I was running into space constraints with
+fitting the 20x14mm footprint alongside the CM4.
+</p></li>
+
+<li><p>
+Bridge Cardbus (PCI) to Ethernet
+</p>
+
+<p>
+The cards I found for these seemed distinctly more complex, and I
+found that the gains in bandwidth would be largely redundant for
+the throughput needed by XDMCP (<a href="https://wiki.ubuntu.com/xdmcp">~100mbit</a>), for which even
+USB1.0/Low-Speed should be sufficient (~1.5Mbps). So USB was
+looking much more pleasant to work with.
+</p></li>
+
+<li><p>
+Connect the compute module directly to the Cardbus interface.
+</p>
+
+<p>
+This seemed most efficient, and would be potentially simpler in
+terms of circuit design, but would likely have involved writing
+device drivers. 
+</p></li>
+</ol>
+
+
+<p>
+The USB route seemed most simple, so I am moving forward with that
+plan, but should there be some fatal flaws with e.g size constraints,
+I may be forced to consider other options. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18ff88b" class="outline-3">
+<h3 id="org18ff88b">Design</h3>
+<div class="outline-text-3" id="text-org18ff88b">
+<p>
+I've neither designed a PCB nor used ICs before, so I was a little
+lost to begin with. I decided to acquire a Cardbus-USB adapter card
+that I could open up to reverse engineer.
+</p>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-electronics.html">electronics</a> <a href="https://akll.org/tag-linux.html">linux</a> <a href="https://akll.org/tag-computer-science.html">computer-science</a> <a href="https://akll.org/tag-engineering.html">engineering</a> </div><div id="archive">
+<a href="https://akll.org/archive.html">Other posts</a>
+</div>
+</div>
+<div id="postamble" class="status"><div id="archive">
+  <a href="https://akll.org/archive.html">Archive</a>
+</div></div>
+</body>
+</html>

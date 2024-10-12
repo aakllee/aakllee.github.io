@@ -4,36 +4,803 @@
 <title><![CDATA[Aaron Lee]]></title>
 <description><![CDATA[Aaron Lee]]></description>
 <link>https://akll.org/</link>
-<lastBuildDate>Sat, 28 Sep 2024 15:46:14 +0100</lastBuildDate>
+<lastBuildDate>Sat, 12 Oct 2024 18:06:20 +0100</lastBuildDate>
 <item>
-  <title><![CDATA[Website migration]]></title>
+  <title><![CDATA[PiCMCA - Part #1]]></title>
   <description><![CDATA[
 <p>
-Hello! I have at least decided on a static site generator,
-<a href="https://github.com/bastibe/org-static-blog">org-static-blog</a>. The tool is pleasantly minimal whilst incorporating
-some incredibly useful features, such as the tag system. So this marks
-the first page on the new site, and I will begin to migrate content
-from the old site posthaste. 
+The Pi Compute Module Cardbus Adapter: PiCMCA, is a Cardbus (PCMCIA)
+module that uses the USB lanes of the Cardbus interface as a
+low-latency network connection between the host system and a Raspberry
+Pi compute module system-on-a-chip.
 </p>
-<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-blog,.html">blog,</a> <a href="https://akll.org/tag-emacs,.html">emacs,</a> <a href="https://akll.org/tag-org-mode.html">org-mode</a> </div>]]></description>
-  <category><![CDATA[blog,]]></category>
-  <category><![CDATA[emacs,]]></category>
-  <category><![CDATA[org-mode]]></category>
-  <link>https://akll.org/2024-09-28-website-migration.html</link>
-  <guid>https://akll.org/2024-09-28-website-migration.html</guid>
-  <pubDate>Sat, 28 Sep 2024 15:39:00 +0100</pubDate>
+
+<p>
+This allows for the host laptop to act as a thin client for the
+Raspberry Pi, thus allowing vintage computers to act as modern
+computing devices.
+</p>
+
+
+<div id="outline-container-orgf22a0ce" class="outline-2">
+<h2 id="orgf22a0ce">Why?</h2>
+<div class="outline-text-2" id="text-orgf22a0ce">
+<p>
+I am the happy owner of a Thinkpad x61, which is now a grand 14 years
+old. It is, of course, beginning to show its age, with its fans loud
+as a microwave, and a battery with the lifespan of an elderly mayfly.
+</p>
+
+<p>
+For all that, it is still in excellent condition, so I wanted to give
+it another chance at life. And I would assume that there are many
+others similarly attached to their old computers who could stand to
+benefit - not to mention the potential reduction in e-waste.
+</p>
+
+<p>
+I then came across the <a href="https://geoff.greer.fm/2017/07/16/thinkpad-x62/">Thinkpad x62/x63</a>: an extreme modification to
+the x61 which supplants the original motherboard with an entirely
+custom-built motherboard with modern components.
+</p>
+
+<p>
+Sadly, these were very expensive, and available for purchase only by
+wiring money to various individuals overseas, who would then mail the
+motherboard over to you (from anecdotal data, usually taking several
+months). And difficulties with customs and legalese etc. make things
+really quite dubious.
+</p>
+
+<p>
+So, I did the natural thing, and decided to take matters into my own
+hands.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f0f2d6" class="outline-2">
+<h2 id="org4f0f2d6">Plan</h2>
+<div class="outline-text-2" id="text-org4f0f2d6">
+<p>
+In the first place, I didn't need the full processing power of a
+mobile 5GHz Intel CPU with integrated graphics and a 4K LCD screen -
+far from it; I needed only something I could use to browse the web,
+comfortably write up some documents, watch some films. And not also
+perform a secondary function as a portable stove. So if I could
+implant the Pi compute module 4 into the existing internals, that
+would be a quite apposite solution.
+</p>
+
+<p>
+The Pi would use the Thinkpad SSD for storage using a technology such
+as NFS or SSHFS, since the SD card/eMMC is unsuitable for anything
+more than the OS. Ideally I'd have the entire root filesystem on the
+Thinkpad using PXE/netbooting, but alas my proficiency in wizardry
+extends only so far. It might be possible to have the boot partition
+on the SD card then mount root as NFS, however this is an optimisation
+problem so to be tackled later on.
+</p>
+
+<p>
+It is relatively messy to have the files on the client, but unlike in
+an OS like Plan9, we can't just set each as CPU server and File
+server. I was considering setting up Plan9, but felt that it would
+have hindered usability a little too much.
+</p>
+
+<p>
+The plan was to design a standard PCB for the Pi CM4 (hence the name
+of the project), however I soon came to realise, reading the
+specification, that the height of a PCMCIA card is a quite strict
+5mm. A Pi CM4 on the other hand, is 4.78mm tall.
+</p>
+
+<p>
+So looking into what I could do there, I came across flex PCBs and
+extra thin FR4 PCBs, which have a potential depth of less than 0.20mm.
+</p>
+
+<p>
+This seemed perfect, however, I could not find any detailed
+specification for the depth of the CM4 connector itself that would be
+soldered to the PCB, which if too tall would have been very sad
+indeed. I did find that the "mounted stacking height" of the connector
+would be 1.5mm, however I was unsure if this included the connector on
+the CM4 itself - in which case the total height would be 5.11mm&#x2026;
+</p>
+
+<p>
+So I assumed that tolerances wouldn't be <i>that</i> tight and went ahead
+anyway.
+</p>
+
+<p>
+<a href="https://github.com/thagrol/Guides/blob/main/ethernetgadget.pdf">https://github.com/thagrol/Guides/blob/main/ethernetgadget.pdf</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge423d82" class="outline-2">
+<h2 id="orge423d82">Proof of Concept</h2>
+<div class="outline-text-2" id="text-orge423d82">
+<p>
+To begin with I used an off-the-shelf carrier board which breaks out
+the USB lanes, so that I would be able to test that my software stack
+would work in practice, before committing to designing my own using
+the Cardbus interface. 
+</p>
+
+<p>
+This took some quite extensive configuration, but I managed to make
+things work, running <a href="https://alpinelinux.org/">Alpine Linux</a> on both the Pi and the
+laptop. Alpine is inherently a very small and efficient operating
+system, owing to have been designed for usage in embedded systems.
+</p>
+
+<p>
+I initially considered using X-forwarding, however this would have
+resulted in needing to run two separate X11 servers, which would have
+been pointlessly inefficient.
+</p>
+
+<p>
+But eventually what I found was that the solution was in the name -
+X11 servers being <i>servers</i>, surely meant that I could run the X11
+server on the Pi and then use the laptop as solely a client. And this
+led me to <a href="https://wiki.archlinux.org/title/XDMCP">XDMCP</a> - a protocol for opening remote X sessions.
+</p>
+
+<p>
+So I installed X11 on the Pi, for which Alpine provides a very
+convenient <code>setup-xorg-script</code>, and set up XDMCP, thus giving me a
+fully functional proof of concept.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5154049" class="outline-2">
+<h2 id="org5154049">Hardware design</h2>
+<div class="outline-text-2" id="text-org5154049">
+</div>
+<div id="outline-container-org67e6def" class="outline-3">
+<h3 id="org67e6def">Plan</h3>
+<div class="outline-text-3" id="text-org67e6def">
+<p>
+I was able to use the regular Pi 4B in the proof of concept via USB
+gadget mode, which allows one to run the Pi headlessly, using the USB
+interface as a network connection to transfer data. In theory, I saw
+two paths to mimic this same connection over the Cardbus interface:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Bridge Cardbus (PCI) to USB
+</p>
+
+<p>
+I looked at existing Cardbus-USB adapters and found that they all
+seemed to use the same chip: the VT6212/VT6212L. This seemed
+promising, although I was running into space constraints with
+fitting the 20x14mm footprint alongside the CM4.
+</p></li>
+
+<li><p>
+Bridge Cardbus (PCI) to Ethernet
+</p>
+
+<p>
+The cards I found for these seemed distinctly more complex, and I
+found that the gains in bandwidth would be largely redundant for
+the throughput needed by XDMCP (<a href="https://wiki.ubuntu.com/xdmcp">~100mbit</a>), for which even
+USB1.0/Low-Speed should be sufficient (~1.5Mbps). So USB was
+looking much more pleasant to work with.
+</p></li>
+
+<li><p>
+Connect the compute module directly to the Cardbus interface.
+</p>
+
+<p>
+This seemed most efficient, and would be potentially simpler in
+terms of circuit design, but would likely have involved writing
+device drivers. 
+</p></li>
+</ol>
+
+
+<p>
+The USB route seemed most simple, so I am moving forward with that
+plan, but should there be some fatal flaws with e.g size constraints,
+I may be forced to consider other options. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18ff88b" class="outline-3">
+<h3 id="org18ff88b">Design</h3>
+<div class="outline-text-3" id="text-org18ff88b">
+<p>
+I've neither designed a PCB nor used ICs before, so I was a little
+lost to begin with. I decided to acquire a Cardbus-USB adapter card
+that I could open up to reverse engineer.
+</p>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-electronics.html">electronics</a> <a href="https://akll.org/tag-linux.html">linux</a> <a href="https://akll.org/tag-computer-science.html">computer-science</a> <a href="https://akll.org/tag-engineering.html">engineering</a> </div>]]></description>
+  <category><![CDATA[electronics]]></category>
+  <category><![CDATA[linux]]></category>
+  <category><![CDATA[computer-science]]></category>
+  <category><![CDATA[engineering]]></category>
+  <link>https://akll.org/blog/2024-10-03-picmca.html</link>
+  <guid>https://akll.org/blog/2024-10-03-picmca.html</guid>
+  <pubDate>Thu, 03 Oct 2024 16:51:00 +0100</pubDate>
 </item>
 <item>
-  <title><![CDATA[test]]></title>
+  <title><![CDATA[AMD Vega 10 Fan Control on GNU Guix System]]></title>
   <description><![CDATA[
 <p>
-testing testing 123
+When I first built my PC, I installed GNU Guix System as my primary
+OS - a distribution of Linux with fully functional package management
+and system configuration. Guix System is similar to NixOS in this
+sense, but uses Scheme (a Lisp) instead of Nix. This allows one to
+write configurations without needing to learn the arcane and obscure
+peculiarities of Nix, so was extremely appealing to me.
 </p>
-<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-test.html">Test</a> </div>]]></description>
-  <category><![CDATA[Test]]></category>
-  <link>https://akll.org/blog/2024-09-28-test.html</link>
-  <guid>https://akll.org/blog/2024-09-28-test.html</guid>
-  <pubDate>Sat, 28 Sep 2024 12:54:00 +0100</pubDate>
+
+<p>
+And why not a normal distribution of Linux? Well&#x2026; I didn't see any
+massive advantages to a normal distribution over Guix, so Guix it was.
+</p>
+
+<p>
+And it's been over a year and it has served me well - I haven't needed
+to reinstall the system at all, practically everything just works.
+</p>
+
+
+<div id="outline-container-orga9e1d88" class="outline-2">
+<h2 id="orga9e1d88">Hardware</h2>
+<div class="outline-text-2" id="text-orga9e1d88">
+<p>
+My PC is built in an ITX case (the Louqe Ghost S1) so there were some
+space constraints I had to work around when choosing parts:
+</p>
+
+<ul class="org-ul">
+<li>ASRock B550m-itx/ac</li>
+<li>AMD Ryzen 5600G</li>
+<li>AMD Radeon Pro v320</li>
+<li>Corsair SF750</li>
+<li>Corsair Vengeance LPX 2x8GB</li>
+<li>Noctua NH-L12 Ghost S1 Edition</li>
+</ul>
+
+
+<p>
+But with everything together, it runs almost silently, staying cool
+and out of mind.
+</p>
+
+<p>
+Except the GPU.
+</p>
+
+<p>
+Now you may be wondering: Aaron, what in God's name is that GPU
+supposed to be? v320? That's not something you can even buy.
+</p>
+
+<p>
+And no, the card was never made commercially available to consumers,
+they were bespoke cards made specifically for Google Stadia
+development machines, though in reality they are essentially typical
+Vega 10 cards with a shiny coat of YInMn blue. I bought one in a
+Japanese auction while the Yen was low, and it turned out quite cheap
+indeed.
+</p>
+
+<p>
+Point is, the card ran weirdly hot, drawing a lot of power. So it was
+the noisiest part of the whole PC. So I wanted to fix that.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb40f81d" class="outline-2">
+<h2 id="orgb40f81d">Solution</h2>
+<div class="outline-text-2" id="text-orgb40f81d">
+<p>
+There were existing scripts for fan control on Linux (eg <a href="https://github.com/chestm007/amdgpu-fan">amdgpu-fan</a>),
+some written in Python, some in C, some in Bash. So I adapted these
+into Scheme, so as to integrate into Guix System, and added a function
+to also undervolt the card:
+</p>
+
+<pre class="example">
+#!/usr/bin/env -S guile
+!#
+
+(use-modules (ice-9 textual-ports))
+
+;; path to gpu device folder
+(define d "/sys/class/drm/card0/device/")
+(define h (string-append d "hwmon/hwmon2/"))
+
+;; amdgpu-fancontrol constants
+(define y 6000) ; in mK
+(define s 1) ; in s
+(define p (string-append h "pwm1"))
+(define f (string-append h "pwm1_enable"))
+(define t (string-append h "temp1_input"))
+
+;; undervolt/overclock constants
+(define c (string-append d "pp_od_clk_voltage"))
+(define e (string-append d "power_dpm_force_performance_level"))
+
+(define l 0)
+
+(define (w f s)
+  "writes str to file"
+  (let ((o (open-file f "w")))
+    (display s o)
+    (newline o)
+    (close o)))
+(define (r f)
+  "returns file contents as string"
+  (get-string-all (open-file f "r")))
+
+;; method used to set clock speeds and voltages
+(define (set-clks a sm)
+  "lst should be in form L C V L C V L C V..."
+
+  (w e "manual")
+
+  ;; for each L C V
+  (for-each
+   (lambda (l)
+     ;; print to console
+     (display "writing to clk: ")
+     (display (string-join (cons sm l) " "))
+     (newline)
+     ;; write to file
+     (w c (string-join (cons sm l) " ")))
+
+   (parse-clks a))
+
+  (w c "c")
+  (display (string-concatenate (list "Finished setting " sm "clk")))
+  (newline))
+
+
+;; methods used for parsing input
+(define (list-&gt;alist l)
+  "Converts list (a b c d ...) to ((a b) (c d) ...)"
+  (if (&lt; (length l) 2)
+      '()
+      (cons (cons (string-&gt;number (string-trim-both (car l)))
+                 (string-&gt;number (string-trim-both (cadr l))))
+           (list-&gt;alist (cddr l)))))
+(define (list-split l p)
+  "returns (before . after) where before is the sublist before 
+pred, and after is the sublist after pred. Assumes pred is unique."
+  (define (until l p)
+    (if (or (null? l)
+           (string=? (car l) p))
+        '()
+        (cons (car l) (until (cdr l) p))))
+  (cons (until l p) (reverse (until (reverse l) p))))
+;; probably should merge this into list-&gt;alist with a numerical argument
+(define (parse-clks a)
+  (if (&lt; (length a) 3)
+      '()
+      (cons (list (car a) (cadr a) (caddr a))
+           (parse-clks (cdddr a)))))
+
+;; checks for read/write access
+(define check-permissions
+  (and (access? p W_OK)
+       (access? f W_OK)
+       (access? t R_OK)
+       (access? c W_OK)
+       (access? e W_OK)))
+
+
+;; sets fan mode
+(define (set-fanmode m)
+  (display (string-append "setting fan mode to " m))
+  (w f mode))
+;; sets pwm
+(define (set-pwm m)
+  "pwm is the value to set to"
+  (let ((n m)
+        (o (string-&gt;number (string-trim-both (r p)))))
+    (display (string-concatenate
+             (list "current pwm: " (number-&gt;string o)
+                   ", requested to set pwm to " (number-&gt;string n))))
+    (newline)
+    (if (not (string=? (string-trim-both (r f)) "1"))
+        (let ()
+         (display "fanmode not set to manual. Setting now.")
+         (newline)
+         (set-fanmode "1")))
+
+    ;; set temp iff:
+    ;;  temperature at last pwm change is unset (0)
+    ;;  or current temperature &gt; temperature at last pwm change
+    ;;  or t + y &lt;= temperature at last pwm change
+    (let ((t (string-&gt;number (string-trim-both (r t)))))
+      (if (or (= l 0)
+             (&gt; t l)
+             (&gt; l (+ t y)))
+         (let ()
+           (display "current temp: " )
+           (display t)
+           (newline)
+           (display (string-append "temp at last change was " (number-&gt;string l)))
+           (newline)
+           (display (string-append "changing pwm to " (number-&gt;string m)))
+           (newline)
+           (w p n)
+           (display "last: ")
+           (display l)
+           (newline)
+           (display "setting last to: ")
+           (display (r t))
+           (set! l
+                 (string-&gt;number
+                  (string-trim-both
+                   (r t)))))))))
+(define (interpolate-pwm m)
+  "m is the alist of (temperature . pwm) pairs"
+  (define (get-next-interpolation-pairs t m)
+    "returns a pair of the next two temps and pwms to use"
+    (if (&gt; (caadr m) t)
+        (cons (car m) (cadr m))
+        (get-next-interpolation-pairs temp (cdr m))))
+  ;; let t be the integer value of the contents of the temperature file
+  (let ((t (string-&gt;number (string-trim-both (r t)))))
+    ;; set pwm to the clamped linear interpolation between the values of m
+    (set-pwm 
+     (cond ((&gt; (caar m) t) ; if temp &lt;= min temp, set to min temp
+           (caar m))
+          ((&lt; (caar (last-pair m)) t) ; if temp &gt;= max temp, set to max temp
+           (caar (last-pair m)))
+          (else (let* ((v (get-next-interpolation-pairs t m)))
+                  (+ lower-pwm
+                     ;; / would return a rational number so use quotient
+                     (quotient (* (- t (caar v))
+                                  (- (cddr v) (cdar v)))
+                                (- (cadr v) (caar v))))))))))
+;; method used to start fan daemon
+(define (run-daemon a)
+  "runs the daemon"
+  (while #t
+        (interpolate-pwm a)
+        (sleep s)))
+;; main method
+(define (amduvocd a)
+  "a are in the form and order:
+TEMP PWM  TEMP PWM...  -s LVL SCLK V  LVL SCLK V...  -m LVL MCLK V  LVL MCLK V... 
+because parsing inputs properly is a waste of time. If your a aren't formatted 
+correctly, something will probably go wrong, so, don't do that"
+  (if (not (access? h F_OK))
+      (display (string-concatenate
+                (list "error: " h
+                     " does not exist. You may need to edit this file to change the path. "
+                     "(I may implement customisation at some point, but probably never)"))))
+  (if check-permissions
+      ;; if sufficient permissions, set values
+      (let* ((a (list-split a "-s"))
+            (fan-a (list-&gt;alist (cdar a)))
+            (clk-a (list-split (cdr a) "-m"))
+            (sclk-a (car clk-a))
+            (mclk-a (cdr clk-a)))
+        (display "Fan pwms:")
+        (newline)
+        (display fan-a)
+        (newline)
+        (display "SCLK:")
+        (newline)
+        (display sclk-a)
+        (newline)
+        (display "MCLK:")
+        (newline)
+        (display mclk-a)
+        (newline)
+        (newline)
+        (set-clks sclk-a "s")
+        (set-clks mclk-a "m")
+        (run-daemon fan-a)
+        (status:exit-val 0))
+
+      ;; return error code 1 if invalid permissions
+      (let ()
+        (display "Error: insufficient permissions. Are you root?")
+        (status:exit-val 1))))
+;; execute main method
+(amduvocd (command-line))
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgfbb9481" class="outline-2">
+<h2 id="orgfbb9481">Results</h2>
+<div class="outline-text-2" id="text-orgfbb9481">
+<p>
+It works. Card runs quiet, draws less power. Easy to customise if I
+ever need more performance for some reason. No particular issues I
+have noticed yet, although always on the lookout. 
+</p>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-linux.html">linux</a> <a href="https://akll.org/tag-scheme.html">scheme</a> <a href="https://akll.org/tag-lisp.html">lisp</a> <a href="https://akll.org/tag-guix.html">guix</a> </div>]]></description>
+  <category><![CDATA[linux]]></category>
+  <category><![CDATA[scheme]]></category>
+  <category><![CDATA[lisp]]></category>
+  <category><![CDATA[guix]]></category>
+  <link>https://akll.org/blog/2024-08-01-amd-vega-10-fan-control-on-gnu-guix-system.html</link>
+  <guid>https://akll.org/blog/2024-08-01-amd-vega-10-fan-control-on-gnu-guix-system.html</guid>
+  <pubDate>Thu, 01 Aug 2024 17:43:00 +0100</pubDate>
+</item>
+<item>
+  <title><![CDATA[How not to remember your room key]]></title>
+  <description><![CDATA[
+<p>
+During my first year at university, I found myself like so many
+others, in student accomodation. Specifically, I was in the Westwood
+campus flats, notorious at Warwick for being much further away from
+main campus than any other available accomodation.
+</p>
+
+<p>
+This was not typically an issue for me, for so do I enjoy walking,
+but from time to time &#x2026;maybe more times than I care to admit, I
+would find myself walking back after a long day's work, having trudged
+there and back again to Life Sciences at the opposite end of campus,
+it's cold and dark and raining, and I'm ready to warm up indoors, have
+a restful night's sleep and &#x2026;where is my key?
+</p>
+
+<p>
+So then I have to go back out in the rain, by now pitch black and
+freezing outside, all the way over to the far end of central campus to
+acquisition a new key. And this was a perilous journey with the
+crossing lights seemingly perpetually broken. But I make it in the
+end, get my new key, and finally drag myself back to my flat once
+more, soaked and tired, and lo! Indoors, is warm and cosy, and who do
+I find perched so obnoxiously on my desk, grinning a snide, silver
+smile like a Cheshire cat? Why my old key of course!
+</p>
+
+<p>
+So after the 16th time (I counted) I decided I should probably do
+something about it.
+</p>
+
+
+
+<figure id="org2abd9db">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Tennel_Cheshire_proof.png" alt="Tennel_Cheshire_proof.png" width="300px">
+
+</figure>
+
+<div id="outline-container-org7adf18e" class="outline-2">
+<h2 id="org7adf18e">Brainstorming</h2>
+<div class="outline-text-2" id="text-org7adf18e">
+<p>
+To begin with I came up with a few ideas:
+</p>
+<ol class="org-ol">
+<li><p>
+Clone my key and keep the spare in my wallet.
+</p>
+
+<p>
+This would have been a fairly straightforward solution, if not for
+the fact that doing so would apparently have been against the terms
+of my accomodation. The keys are quite simple NFC tags so should be
+trivial to duplicate, but I decided to look into other options.
+</p></li>
+
+<li><p>
+Lead a string under my door attached to the handle, so that I could
+pull the string to open the door from the inside.
+</p>
+
+<p>
+This would have compromised the security of my room somewhat,
+although I doubt that anyone would have tried to use it, in fact my
+flatmates were generally all honest, trustworthy people. But alas,
+it was not ideal.
+</p></li>
+
+<li><p>
+Prevent myself from forgetting the key in the first place.
+</p>
+
+<p>
+This was the ideal solution, but&#x2026; how?
+</p></li>
+</ol>
+
+
+<p>
+Looking at my key, (after another day of such absentmindedness&#x2026;),
+and at its sinister silver sheen, I wondered if the ring might be
+conductive.
+</p>
+
+
+<figure id="org6e36543">
+<img src="./images/roomkeyconductivity.webp" alt="roomkeyconductivity.webp" width="300px">
+
+</figure>
+
+<p>
+And so it was, thus spawning a new idea - I could use the key as a
+connection between two contacts. And when the door is opened while the
+contacts remain connected, an alarm would sound to let me know that my
+key is still there.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0e2df64" class="outline-2">
+<h2 id="org0e2df64">Design</h2>
+<div class="outline-text-2" id="text-org0e2df64">
+
+<figure id="org2e82f77">
+<img src="./images/roomkeydesign1.webp" alt="roomkeydesign1.webp" width="300px">
+
+</figure>
+
+<p>
+For the door contacts, my first instinct was to have a buzzer in
+series with a battery, then have the contacts in parallel with the
+buzzer, such that when the doors close, the buzzer would be shorted
+and no longer sound.
+</p>
+
+<p>
+I realised however that this would be constantly shorting the battery
+which would be a massive waste of electricity, and not to mention
+potentially unsafe. So at that point I felt I may as well have used a
+microcontroller, since I'm generally much more comfortable at a higher
+level of abstraction (computer scientist as I am). But this again felt
+pointlessly wasteful.
+</p>
+
+<p>
+And it felt like it should be a relatively simple electronic circuit -
+in logic gates it would be something like:
+</p>
+
+
+<figure id="org169225c">
+<img src="./images/roomkeydesign2.webp" alt="roomkeydesign2.webp" width="300px">
+
+</figure>
+
+
+<p>
+Which in theory I could make using logic gate chips such as the
+74HC04, as I had done in my computer architecture labs before, but it
+again felt that there should be a more efficient solution.
+</p>
+
+
+<p>
+And it was around this time that I was conveniently introduced to the
+magic of transistors in one of my electronics lectures, allowing me to
+draw up this little circuit here:
+</p>
+
+<figure id="orgffc7baf">
+<img src="./images/roomkeydesign3.webp" alt="roomkeydesign3.webp" width="300px">
+
+</figure>
+
+<p>
+Where with appropriate component values there should be minimal
+current flowing through the circuit when idle.
+</p>
+
+<p>
+So&#x2026; I built it (apologies for poor quality video):
+</p>
+<figure>
+  <video class="embed-responsive-item" controls>
+    <source src="./images/roomkeydemo1.mp4" width="600px" height="400px">
+    Your browser does not support the video tag.
+  </video>
+</figure>
+
+<p>
+And it worked, perfectly. Which is odd because normally things take
+some trial and error before they do. But it worked. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf2742e6" class="outline-2">
+<h2 id="orgf2742e6">Results</h2>
+<div class="outline-text-2" id="text-orgf2742e6">
+<p>
+Sadly, for the 2 weeks I had the device installed atop the door, I
+found that in reality I forgot my key more times by leaving it in my
+jacket, and then leaving my jacket in my room. So the device would
+assume that I had the key, when in actuality it was still in the room,
+and not on my person.
+</p>
+
+<p>
+And besides which, apparently having a beeping tangle of wires above
+your door looks a lot like a bomb. Who knew? Residential services
+certainly did&#x2026;
+</p>
+
+
+<figure id="org8c5e94d">
+<img src="./images/roomkeyremember.webp" alt="roomkeyremember.webp" width="300px">
+
+</figure>
+
+<figure id="orgb3b2b25">
+<img src="./images/roomkeykeys.webp" alt="roomkeykeys.webp" width="300px"> 
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org11f0ac7" class="outline-2">
+<h2 id="org11f0ac7">Improvements</h2>
+<div class="outline-text-2" id="text-org11f0ac7">
+<p>
+I believe the main issue was that there was no interaction required
+using the key to leave the room, ie. I didn't need to pick up the key
+to leave the room.
+</p>
+
+<p>
+So instead a better solution would be to require you to tap the key on
+the contacts before you leave, which would provide you with a grace
+period of about 10 seconds where you can open the door without the
+alarm sounding.
+</p>
+
+<p>
+I imagine it would be fairly straightforward to adapt the current
+circuit to use a simple time delay circuit with a few resistors and
+capacitors, should such a device seem useful to you. Potentially also
+an enclosure of some description (I had also considered sewing a sock
+monkey around all the cables, with the feet holding the door contacts,
+and the key hooks at the end of the tail. Maybe add a red LED in the
+eyes).
+</p>
+
+
+<figure id="org1881212">
+<img src="./images/roomkeysock1.webp" alt="roomkeysock1.webp" width="300px">
+
+</figure>
+
+<figure id="org1dfd20a">
+<img src="./images/roomkeysock2.webp" alt="roomkeysock2.webp" width="300px">
+
+</figure>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-electronics.html">electronics</a> <a href="https://akll.org/tag-university.html">university</a> </div>]]></description>
+  <category><![CDATA[electronics]]></category>
+  <category><![CDATA[university]]></category>
+  <link>https://akll.org/blog/2024-06-28-how-not-to-remember-your-room-key.html</link>
+  <guid>https://akll.org/blog/2024-06-28-how-not-to-remember-your-room-key.html</guid>
+  <pubDate>Fri, 28 Jun 2024 18:31:00 +0100</pubDate>
 </item>
 </channel>
 </rss>

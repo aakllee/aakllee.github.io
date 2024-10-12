@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://akll.org/rss.xml"
+      title="RSS feed for https://akll.org/">
+<title>Aaron Lee</title>
+<meta name="author" content="Aaron Lee">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1">
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<link href= "static/style.css" rel="stylesheet" type="text/css" >
+<link rel="icon" href="static/favicon.ico"></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="https://akll.org">AKLL - Aaron Lee</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "biology":</h1>
+<div class="post-date">04 Jul 2024</div><h1 class="post-title"><a href="https://akll.org/blog/2024-07-04-biological-systems-modelling-with-julia-#1---odes.html">Biological Systems Modelling with Julia #1 - ODEs</a></h1>
+
+<div id="outline-container-orgb2c7ce7" class="outline-2">
+<h2 id="orgb2c7ce7">Overview</h2>
+<div class="outline-text-2" id="text-orgb2c7ce7">
+<p>
+Mathematical models are used to create designs for systems <i>in
+silico</i>. The model can be used to test and optimise the design before
+implementing it <i>in vivo</i> or <i>in vitro</i>.
+</p>
+
+<p>
+Over the course of this article I'll be using the simple example of
+gene transcription regulation by repressors to demonstrate the process
+of modelling with ordinary differential equations in Julia. We will
+then use the model to compose a more complex model of a toggle switch.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org043df1a" class="outline-2">
+<h2 id="org043df1a">Rationale - Why Julia?</h2>
+<div class="outline-text-2" id="text-org043df1a">
+<p>
+In other words, "why not Python/MATLAB/R?"
+</p>
+
+<ol class="org-ol">
+<li>Julia is an infix Lisp:
+<ul class="org-ul">
+<li>Macros allow for beautifully elegant and flexible code</li>
+<li>Encouragement of the functional paradigm, making code easier to
+reason about</li>
+<li>Higher order functions such as map and reduce</li>
+</ul></li>
+
+<li>High performance, approaching that of statically typed languages:
+<ul class="org-ul">
+<li>High efficiency =&gt; Less energy usage</li>
+<li>Tasks complete faster</li>
+<li>Easy to implement parallel and distributed algorithms</li>
+</ul></li>
+
+<li>Built-in package manager with a delightful smorgasbord of libraries
+<dl class="org-dl">
+<dt><code>ModelingToolkit.jl</code></dt><dd>Systems Modelling</dd>
+<dt><code>DifferentialEquations.jl</code></dt><dd>Differential Equations</dd>
+<dt><code>DiffEqBiological.jl</code></dt><dd>Useful for modelling chemical reaction networks</dd>
+</dl></li>
+
+<li>Open source (unlike MATLAB)
+<ul class="org-ul">
+<li>No licensing issues</li>
+<li>Not for-profit</li>
+<li>More rapid development and bug fixes</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org69f2797" class="outline-2">
+<h2 id="org69f2797">Modelling Gene Transcription By Repressors</h2>
+<div class="outline-text-2" id="text-org69f2797">
+<p>
+Import libraries used for modelling — <code>Plots</code> is used to display the
+graph of the simulated model, and <code>DifferentialEquations:solve</code> is
+used to solve the differential equations. <code>ModelingToolkit</code> composes a
+number of useful tools for modelling, such as the <code>@mtkmodel</code> macro.
+</p>
+
+<pre class="example">
+using ModelingToolkit, Plots
+using DifferentialEquations:solve
+</pre>
+
+<p>
+First we declare our independent variable for time, <code>t</code>. Then we declare
+<code>D</code> as a differential equation with respect to <code>t</code>:
+</p>
+
+<pre class="example">
+# Gene transcription regulation by repressors
+# equations derived from 'Synthetic Biology - A Primer'
+
+@variables t        # time
+D = Differential(t) # D is a derivative with respect to t
+</pre>
+
+
+
+<p>
+Declare the forcing function <code>f_fun</code> representing the concentration of
+transcriptional repressor, <code>R</code>, over time. Register the function to
+prevent symbolic transformations.
+</p>
+
+<p>
+<code>ModelingToolkit</code> also supports discrete events, to avoid having to
+use a function to model the changes, but for simplicity's sake we will
+consider that later.
+</p>
+
+<pre class="example">
+f_fun(t) = t &gt; 5 ? 2. : 0.   # after t = 5 add repressor
+@register_symbolic f_fun(t)  # register as forcing function for GTR
+</pre>
+
+<p>
+Define the model variables, parameters, and functions. <code>@mtkmodel</code> is
+a relatively recent addition to <code>ModelingToolkit.jl</code> at the time of
+writing, so may not be available in older versions of Julia. An
+equivalent, if more verbose solution can be obtained using <code>ODESystem</code>
+instead. In this example we will be using <code>@mtkmodel</code>.
+</p>
+
+<pre class="example">
+@mtkmodel GTR begin
+    @variables begin
+        m(t)    # [mRNA] obtained from transcription, at time t
+        p(t)    # [protein] from translation, at time t
+
+        R(t)    # function to describe level of repressor
+    end
+    @parameters begin
+        k1      # maximal transcription rate
+        k2      # protein translation rate
+        K       # repression coefficient
+        n       # Hill coefficient
+        d1      # mRNA degradation rate
+        d2      # protein degradation rate
+    end
+    @equations begin
+        R ~ f_fun(t)
+        D(m) ~ k1 * K^n / (K^n + R^n) - d1 * m
+        D(p) ~ k2 * m - d2 * p
+    end
+end
+</pre>
+
+<p>
+Solve the model for some given values, then plot as a graph:
+</p>
+
+<pre class="example">
+@mtkbuild gtr = GTR()
+println("ODE...")
+prob = ODEProblem(gtr,
+                  [gtr.m =&gt; 0, gtr.p =&gt; 0],  # initial conditions
+                  (0.0, 30.0),               # range of t
+                  [gtr.k1 =&gt; 1,              # parameter values
+                   gtr.k2 =&gt; 1,
+                   gtr.K  =&gt; 1,
+                   gtr.n  =&gt; 1,
+                   gtr.d1 =&gt; 1,
+                   gtr.d2 =&gt; 1,])
+
+println("Solve...")
+sol = solve(prob)
+println("Plot...")
+plot(sol, idxs = [gtr.p, gtr.m, gtr.R])
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5970129" class="outline-2">
+<h2 id="org5970129">Output</h2>
+<div class="outline-text-2" id="text-org5970129">
+<p>
+Behold a graph:
+</p>
+
+
+<figure id="orgede1e6c">
+<img src="./images/biomodjulia1graph1.png" alt="biomodjulia1graph1.png">
+
+</figure>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-biology.html">biology</a> <a href="https://akll.org/tag-engineering.html">engineering</a> <a href="https://akll.org/tag-julia.html">julia</a> <a href="https://akll.org/tag-programming.html">programming</a> </div><div id="archive">
+<a href="https://akll.org/archive.html">Other posts</a>
+</div>
+</div>
+<div id="postamble" class="status"><div id="archive">
+  <a href="https://akll.org/archive.html">Archive</a>
+</div></div>
+</body>
+</html>

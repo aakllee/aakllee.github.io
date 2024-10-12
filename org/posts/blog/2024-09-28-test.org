@@ -1,6 +1,0 @@
-#+title: test
-#+date: <2024-09-28 12:54>
-#+description: Testing page for blog
-#+filetags: Test
-
-testing testing 123

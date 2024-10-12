@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Dealing with the troubles of auto-locking student accomodation through the power of electronics">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://akll.org/rss.xml"
+      title="RSS feed for https://akll.org/">
+<title>How not to remember your room key</title>
+<meta name="author" content="Aaron Lee">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1">
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<link href= "static/style.css" rel="stylesheet" type="text/css" >
+<link rel="icon" href="static/favicon.ico"></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="https://akll.org">AKLL - Aaron Lee</a>
+</div></div>
+<div id="content">
+<div class="post-date">28 Jun 2024</div><h1 class="post-title"><a href="https://akll.org/blog/2024-06-28-how-not-to-remember-your-room-key.html">How not to remember your room key</a></h1>
+<p>
+During my first year at university, I found myself like so many
+others, in student accomodation. Specifically, I was in the Westwood
+campus flats, notorious at Warwick for being much further away from
+main campus than any other available accomodation.
+</p>
+
+<p>
+This was not typically an issue for me, for so do I enjoy walking,
+but from time to time &#x2026;maybe more times than I care to admit, I
+would find myself walking back after a long day's work, having trudged
+there and back again to Life Sciences at the opposite end of campus,
+it's cold and dark and raining, and I'm ready to warm up indoors, have
+a restful night's sleep and &#x2026;where is my key?
+</p>
+
+<p>
+So then I have to go back out in the rain, by now pitch black and
+freezing outside, all the way over to the far end of central campus to
+acquisition a new key. And this was a perilous journey with the
+crossing lights seemingly perpetually broken. But I make it in the
+end, get my new key, and finally drag myself back to my flat once
+more, soaked and tired, and lo! Indoors, is warm and cosy, and who do
+I find perched so obnoxiously on my desk, grinning a snide, silver
+smile like a Cheshire cat? Why my old key of course!
+</p>
+
+<p>
+So after the 16th time (I counted) I decided I should probably do
+something about it.
+</p>
+
+
+
+<figure id="org2abd9db">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Tennel_Cheshire_proof.png" alt="Tennel_Cheshire_proof.png" width="300px">
+
+</figure>
+
+<div id="outline-container-org7adf18e" class="outline-2">
+<h2 id="org7adf18e">Brainstorming</h2>
+<div class="outline-text-2" id="text-org7adf18e">
+<p>
+To begin with I came up with a few ideas:
+</p>
+<ol class="org-ol">
+<li><p>
+Clone my key and keep the spare in my wallet.
+</p>
+
+<p>
+This would have been a fairly straightforward solution, if not for
+the fact that doing so would apparently have been against the terms
+of my accomodation. The keys are quite simple NFC tags so should be
+trivial to duplicate, but I decided to look into other options.
+</p></li>
+
+<li><p>
+Lead a string under my door attached to the handle, so that I could
+pull the string to open the door from the inside.
+</p>
+
+<p>
+This would have compromised the security of my room somewhat,
+although I doubt that anyone would have tried to use it, in fact my
+flatmates were generally all honest, trustworthy people. But alas,
+it was not ideal.
+</p></li>
+
+<li><p>
+Prevent myself from forgetting the key in the first place.
+</p>
+
+<p>
+This was the ideal solution, but&#x2026; how?
+</p></li>
+</ol>
+
+
+<p>
+Looking at my key, (after another day of such absentmindedness&#x2026;),
+and at its sinister silver sheen, I wondered if the ring might be
+conductive.
+</p>
+
+
+<figure id="org6e36543">
+<img src="./images/roomkeyconductivity.webp" alt="roomkeyconductivity.webp" width="300px">
+
+</figure>
+
+<p>
+And so it was, thus spawning a new idea - I could use the key as a
+connection between two contacts. And when the door is opened while the
+contacts remain connected, an alarm would sound to let me know that my
+key is still there.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0e2df64" class="outline-2">
+<h2 id="org0e2df64">Design</h2>
+<div class="outline-text-2" id="text-org0e2df64">
+
+<figure id="org2e82f77">
+<img src="./images/roomkeydesign1.webp" alt="roomkeydesign1.webp" width="300px">
+
+</figure>
+
+<p>
+For the door contacts, my first instinct was to have a buzzer in
+series with a battery, then have the contacts in parallel with the
+buzzer, such that when the doors close, the buzzer would be shorted
+and no longer sound.
+</p>
+
+<p>
+I realised however that this would be constantly shorting the battery
+which would be a massive waste of electricity, and not to mention
+potentially unsafe. So at that point I felt I may as well have used a
+microcontroller, since I'm generally much more comfortable at a higher
+level of abstraction (computer scientist as I am). But this again felt
+pointlessly wasteful.
+</p>
+
+<p>
+And it felt like it should be a relatively simple electronic circuit -
+in logic gates it would be something like:
+</p>
+
+
+<figure id="org169225c">
+<img src="./images/roomkeydesign2.webp" alt="roomkeydesign2.webp" width="300px">
+
+</figure>
+
+
+<p>
+Which in theory I could make using logic gate chips such as the
+74HC04, as I had done in my computer architecture labs before, but it
+again felt that there should be a more efficient solution.
+</p>
+
+
+<p>
+And it was around this time that I was conveniently introduced to the
+magic of transistors in one of my electronics lectures, allowing me to
+draw up this little circuit here:
+</p>
+
+<figure id="orgffc7baf">
+<img src="./images/roomkeydesign3.webp" alt="roomkeydesign3.webp" width="300px">
+
+</figure>
+
+<p>
+Where with appropriate component values there should be minimal
+current flowing through the circuit when idle.
+</p>
+
+<p>
+So&#x2026; I built it (apologies for poor quality video):
+</p>
+<figure>
+  <video class="embed-responsive-item" controls>
+    <source src="./images/roomkeydemo1.mp4" width="600px" height="400px">
+    Your browser does not support the video tag.
+  </video>
+</figure>
+
+<p>
+And it worked, perfectly. Which is odd because normally things take
+some trial and error before they do. But it worked. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf2742e6" class="outline-2">
+<h2 id="orgf2742e6">Results</h2>
+<div class="outline-text-2" id="text-orgf2742e6">
+<p>
+Sadly, for the 2 weeks I had the device installed atop the door, I
+found that in reality I forgot my key more times by leaving it in my
+jacket, and then leaving my jacket in my room. So the device would
+assume that I had the key, when in actuality it was still in the room,
+and not on my person.
+</p>
+
+<p>
+And besides which, apparently having a beeping tangle of wires above
+your door looks a lot like a bomb. Who knew? Residential services
+certainly did&#x2026;
+</p>
+
+
+<figure id="org8c5e94d">
+<img src="./images/roomkeyremember.webp" alt="roomkeyremember.webp" width="300px">
+
+</figure>
+
+<figure id="orgb3b2b25">
+<img src="./images/roomkeykeys.webp" alt="roomkeykeys.webp" width="300px"> 
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org11f0ac7" class="outline-2">
+<h2 id="org11f0ac7">Improvements</h2>
+<div class="outline-text-2" id="text-org11f0ac7">
+<p>
+I believe the main issue was that there was no interaction required
+using the key to leave the room, ie. I didn't need to pick up the key
+to leave the room.
+</p>
+
+<p>
+So instead a better solution would be to require you to tap the key on
+the contacts before you leave, which would provide you with a grace
+period of about 10 seconds where you can open the door without the
+alarm sounding.
+</p>
+
+<p>
+I imagine it would be fairly straightforward to adapt the current
+circuit to use a simple time delay circuit with a few resistors and
+capacitors, should such a device seem useful to you. Potentially also
+an enclosure of some description (I had also considered sewing a sock
+monkey around all the cables, with the feet holding the door contacts,
+and the key hooks at the end of the tail. Maybe add a red LED in the
+eyes).
+</p>
+
+
+<figure id="org1881212">
+<img src="./images/roomkeysock1.webp" alt="roomkeysock1.webp" width="300px">
+
+</figure>
+
+<figure id="org1dfd20a">
+<img src="./images/roomkeysock2.webp" alt="roomkeysock2.webp" width="300px">
+
+</figure>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-electronics.html">electronics</a> <a href="https://akll.org/tag-university.html">university</a> </div></div>
+<div id="postamble" class="status"><div id="archive">
+  <a href="https://akll.org/archive.html">Archive</a>
+</div></div>
+</body>
+</html>

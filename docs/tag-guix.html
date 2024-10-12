@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://akll.org/rss.xml"
+      title="RSS feed for https://akll.org/">
+<title>Aaron Lee</title>
+<meta name="author" content="Aaron Lee">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="initial-scale=1,width=device-width,minimum-scale=1">
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<link href= "static/style.css" rel="stylesheet" type="text/css" >
+<link rel="icon" href="static/favicon.ico"></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+  <a href="https://akll.org">AKLL - Aaron Lee</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "guix":</h1>
+<div class="post-date">01 Aug 2024</div><h1 class="post-title"><a href="https://akll.org/blog/2024-08-01-amd-vega-10-fan-control-on-gnu-guix-system.html">AMD Vega 10 Fan Control on GNU Guix System</a></h1>
+<p>
+When I first built my PC, I installed GNU Guix System as my primary
+OS - a distribution of Linux with fully functional package management
+and system configuration. Guix System is similar to NixOS in this
+sense, but uses Scheme (a Lisp) instead of Nix. This allows one to
+write configurations without needing to learn the arcane and obscure
+peculiarities of Nix, so was extremely appealing to me.
+</p>
+
+<p>
+And why not a normal distribution of Linux? Well&#x2026; I didn't see any
+massive advantages to a normal distribution over Guix, so Guix it was.
+</p>
+
+<p>
+And it's been over a year and it has served me well - I haven't needed
+to reinstall the system at all, practically everything just works.
+</p>
+
+
+<div id="outline-container-orga9e1d88" class="outline-2">
+<h2 id="orga9e1d88">Hardware</h2>
+<div class="outline-text-2" id="text-orga9e1d88">
+<p>
+My PC is built in an ITX case (the Louqe Ghost S1) so there were some
+space constraints I had to work around when choosing parts:
+</p>
+
+<ul class="org-ul">
+<li>ASRock B550m-itx/ac</li>
+<li>AMD Ryzen 5600G</li>
+<li>AMD Radeon Pro v320</li>
+<li>Corsair SF750</li>
+<li>Corsair Vengeance LPX 2x8GB</li>
+<li>Noctua NH-L12 Ghost S1 Edition</li>
+</ul>
+
+
+<p>
+But with everything together, it runs almost silently, staying cool
+and out of mind.
+</p>
+
+<p>
+Except the GPU.
+</p>
+
+<p>
+Now you may be wondering: Aaron, what in God's name is that GPU
+supposed to be? v320? That's not something you can even buy.
+</p>
+
+<p>
+And no, the card was never made commercially available to consumers,
+they were bespoke cards made specifically for Google Stadia
+development machines, though in reality they are essentially typical
+Vega 10 cards with a shiny coat of YInMn blue. I bought one in a
+Japanese auction while the Yen was low, and it turned out quite cheap
+indeed.
+</p>
+
+<p>
+Point is, the card ran weirdly hot, drawing a lot of power. So it was
+the noisiest part of the whole PC. So I wanted to fix that.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb40f81d" class="outline-2">
+<h2 id="orgb40f81d">Solution</h2>
+<div class="outline-text-2" id="text-orgb40f81d">
+<p>
+There were existing scripts for fan control on Linux (eg <a href="https://github.com/chestm007/amdgpu-fan">amdgpu-fan</a>),
+some written in Python, some in C, some in Bash. So I adapted these
+into Scheme, so as to integrate into Guix System, and added a function
+to also undervolt the card:
+</p>
+
+<pre class="example">
+#!/usr/bin/env -S guile
+!#
+
+(use-modules (ice-9 textual-ports))
+
+;; path to gpu device folder
+(define d "/sys/class/drm/card0/device/")
+(define h (string-append d "hwmon/hwmon2/"))
+
+;; amdgpu-fancontrol constants
+(define y 6000) ; in mK
+(define s 1) ; in s
+(define p (string-append h "pwm1"))
+(define f (string-append h "pwm1_enable"))
+(define t (string-append h "temp1_input"))
+
+;; undervolt/overclock constants
+(define c (string-append d "pp_od_clk_voltage"))
+(define e (string-append d "power_dpm_force_performance_level"))
+
+(define l 0)
+
+(define (w f s)
+  "writes str to file"
+  (let ((o (open-file f "w")))
+    (display s o)
+    (newline o)
+    (close o)))
+(define (r f)
+  "returns file contents as string"
+  (get-string-all (open-file f "r")))
+
+;; method used to set clock speeds and voltages
+(define (set-clks a sm)
+  "lst should be in form L C V L C V L C V..."
+
+  (w e "manual")
+
+  ;; for each L C V
+  (for-each
+   (lambda (l)
+     ;; print to console
+     (display "writing to clk: ")
+     (display (string-join (cons sm l) " "))
+     (newline)
+     ;; write to file
+     (w c (string-join (cons sm l) " ")))
+
+   (parse-clks a))
+
+  (w c "c")
+  (display (string-concatenate (list "Finished setting " sm "clk")))
+  (newline))
+
+
+;; methods used for parsing input
+(define (list-&gt;alist l)
+  "Converts list (a b c d ...) to ((a b) (c d) ...)"
+  (if (&lt; (length l) 2)
+      '()
+      (cons (cons (string-&gt;number (string-trim-both (car l)))
+                 (string-&gt;number (string-trim-both (cadr l))))
+           (list-&gt;alist (cddr l)))))
+(define (list-split l p)
+  "returns (before . after) where before is the sublist before 
+pred, and after is the sublist after pred. Assumes pred is unique."
+  (define (until l p)
+    (if (or (null? l)
+           (string=? (car l) p))
+        '()
+        (cons (car l) (until (cdr l) p))))
+  (cons (until l p) (reverse (until (reverse l) p))))
+;; probably should merge this into list-&gt;alist with a numerical argument
+(define (parse-clks a)
+  (if (&lt; (length a) 3)
+      '()
+      (cons (list (car a) (cadr a) (caddr a))
+           (parse-clks (cdddr a)))))
+
+;; checks for read/write access
+(define check-permissions
+  (and (access? p W_OK)
+       (access? f W_OK)
+       (access? t R_OK)
+       (access? c W_OK)
+       (access? e W_OK)))
+
+
+;; sets fan mode
+(define (set-fanmode m)
+  (display (string-append "setting fan mode to " m))
+  (w f mode))
+;; sets pwm
+(define (set-pwm m)
+  "pwm is the value to set to"
+  (let ((n m)
+        (o (string-&gt;number (string-trim-both (r p)))))
+    (display (string-concatenate
+             (list "current pwm: " (number-&gt;string o)
+                   ", requested to set pwm to " (number-&gt;string n))))
+    (newline)
+    (if (not (string=? (string-trim-both (r f)) "1"))
+        (let ()
+         (display "fanmode not set to manual. Setting now.")
+         (newline)
+         (set-fanmode "1")))
+
+    ;; set temp iff:
+    ;;  temperature at last pwm change is unset (0)
+    ;;  or current temperature &gt; temperature at last pwm change
+    ;;  or t + y &lt;= temperature at last pwm change
+    (let ((t (string-&gt;number (string-trim-both (r t)))))
+      (if (or (= l 0)
+             (&gt; t l)
+             (&gt; l (+ t y)))
+         (let ()
+           (display "current temp: " )
+           (display t)
+           (newline)
+           (display (string-append "temp at last change was " (number-&gt;string l)))
+           (newline)
+           (display (string-append "changing pwm to " (number-&gt;string m)))
+           (newline)
+           (w p n)
+           (display "last: ")
+           (display l)
+           (newline)
+           (display "setting last to: ")
+           (display (r t))
+           (set! l
+                 (string-&gt;number
+                  (string-trim-both
+                   (r t)))))))))
+(define (interpolate-pwm m)
+  "m is the alist of (temperature . pwm) pairs"
+  (define (get-next-interpolation-pairs t m)
+    "returns a pair of the next two temps and pwms to use"
+    (if (&gt; (caadr m) t)
+        (cons (car m) (cadr m))
+        (get-next-interpolation-pairs temp (cdr m))))
+  ;; let t be the integer value of the contents of the temperature file
+  (let ((t (string-&gt;number (string-trim-both (r t)))))
+    ;; set pwm to the clamped linear interpolation between the values of m
+    (set-pwm 
+     (cond ((&gt; (caar m) t) ; if temp &lt;= min temp, set to min temp
+           (caar m))
+          ((&lt; (caar (last-pair m)) t) ; if temp &gt;= max temp, set to max temp
+           (caar (last-pair m)))
+          (else (let* ((v (get-next-interpolation-pairs t m)))
+                  (+ lower-pwm
+                     ;; / would return a rational number so use quotient
+                     (quotient (* (- t (caar v))
+                                  (- (cddr v) (cdar v)))
+                                (- (cadr v) (caar v))))))))))
+;; method used to start fan daemon
+(define (run-daemon a)
+  "runs the daemon"
+  (while #t
+        (interpolate-pwm a)
+        (sleep s)))
+;; main method
+(define (amduvocd a)
+  "a are in the form and order:
+TEMP PWM  TEMP PWM...  -s LVL SCLK V  LVL SCLK V...  -m LVL MCLK V  LVL MCLK V... 
+because parsing inputs properly is a waste of time. If your a aren't formatted 
+correctly, something will probably go wrong, so, don't do that"
+  (if (not (access? h F_OK))
+      (display (string-concatenate
+                (list "error: " h
+                     " does not exist. You may need to edit this file to change the path. "
+                     "(I may implement customisation at some point, but probably never)"))))
+  (if check-permissions
+      ;; if sufficient permissions, set values
+      (let* ((a (list-split a "-s"))
+            (fan-a (list-&gt;alist (cdar a)))
+            (clk-a (list-split (cdr a) "-m"))
+            (sclk-a (car clk-a))
+            (mclk-a (cdr clk-a)))
+        (display "Fan pwms:")
+        (newline)
+        (display fan-a)
+        (newline)
+        (display "SCLK:")
+        (newline)
+        (display sclk-a)
+        (newline)
+        (display "MCLK:")
+        (newline)
+        (display mclk-a)
+        (newline)
+        (newline)
+        (set-clks sclk-a "s")
+        (set-clks mclk-a "m")
+        (run-daemon fan-a)
+        (status:exit-val 0))
+
+      ;; return error code 1 if invalid permissions
+      (let ()
+        (display "Error: insufficient permissions. Are you root?")
+        (status:exit-val 1))))
+;; execute main method
+(amduvocd (command-line))
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgfbb9481" class="outline-2">
+<h2 id="orgfbb9481">Results</h2>
+<div class="outline-text-2" id="text-orgfbb9481">
+<p>
+It works. Card runs quiet, draws less power. Easy to customise if I
+ever need more performance for some reason. No particular issues I
+have noticed yet, although always on the lookout. 
+</p>
+</div>
+</div>
+<div class="taglist"><a href="https://akll.org/tags.html">Tags</a>: <a href="https://akll.org/tag-linux.html">linux</a> <a href="https://akll.org/tag-scheme.html">scheme</a> <a href="https://akll.org/tag-lisp.html">lisp</a> <a href="https://akll.org/tag-guix.html">guix</a> </div><div id="archive">
+<a href="https://akll.org/archive.html">Other posts</a>
+</div>
+</div>
+<div id="postamble" class="status"><div id="archive">
+  <a href="https://akll.org/archive.html">Archive</a>
+</div></div>
+</body>
+</html>
