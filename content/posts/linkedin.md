@@ -4,8 +4,8 @@ draft = false
 title = 'LinkedIn hell and the birth of my new website'
 +++
 
-Greetings all, to the first post on this here website—a website born
-not of love, but of hate, vice, and sin. 
+Greetings all, and welcome to the first post on this here website—a
+website born not of love, but of hate, vice, and sin.
 
 Now that's not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
