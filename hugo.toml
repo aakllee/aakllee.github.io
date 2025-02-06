@@ -1,4 +1,4 @@
-baseURL = 'https://akll.org/'
+baseURL = '//akll.org/'
 languageCode = 'en-GB'
 title = 'Aaron Lee'
 theme = "poison"
