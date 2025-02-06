@@ -9,20 +9,24 @@ not of love, but of hate, vice, and sin.
 
 Now that's not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
-writings and updates. The likes of which I am now unable to post on
-LinkedIn, which has "temporarily restricted" my account. 
-
+writings. Quality writings such as these. Quality writings, the likes
+of which I am now unable to post on LinkedIn, which has "temporarily
+restricted" my account.
 
 Now why was it temporarily restricted I hear you ask? Well, one day I
 thought to connect my account with my university Outlook profile, and
 then the next I was logged out of my account. Which happens, major
 account changes tend to trigger such things for security—password
-changes for example. But the issue was attempting to log back
-in. Which required me to fill in a dozen captchas, and surrender my
-phone number for "verification" (the villains never even had my phone
-number before, in what world does using one here verify
-anything?). And then, oh what a surprise I just get taken back to the
-login screen. 
+changes for example. Or if you're me and simply hated by the
+algorithm, perhaps something so trite as having overly scruffy hair in
+your picture. Who knows? They don't tell you because we are numbers on
+a screen.
+
+In any case the issue was attempting to log back in. Which required me
+to fill in a dozen captchas, and surrender my phone number for
+"verification" (the villains never even had my phone number before, in
+what world does using one here verify anything?). And then, oh what a
+surprise I just get taken back to the login screen.
 
 ![Verification hell](/images/linkedinmaxnumber.webp)
 
@@ -31,18 +35,29 @@ expect? It's a Microsoft platform after all, that's simply the
 norm. So I try again. And again. And lo! Failure. And worse, my
 account is now gone from the interwebs and listed "temporarily
 restricted". And now they demand my government-issue ID via a private
-third party company to recover it.
+third party company to recover it. Which is an obviously contrived
+excuse to imbibe my personal data to be sold off to God knows
+where. Because again, I never had my ID on here before, why should
+adding it now verify anything? It is a malicious and insidious pattern
+which permeates the veins of the internet, and quite frankly should be
+illegal (in fact it likely already is). 
 
-But I have better things to do, so I go off to do other things. I come
-back later and try again and now, my phone number is rejected because
-the "maximum number of times" I can do this has been exceeded. So I
-can't even verify myself even if I wanted to.
+But I have better things to do, so I go off to do such better
+things. I come back later and try again and now, my phone number is
+rejected because the "maximum number of times" I can do this has been
+exceeded. So I can't even verify myself even if I wanted to.
 
 And do I want to? Absolutely not. To provide such documentation would
 be a massive invasion of privacy. And how could anyone trust a company
-which has already suffered several data leaks in the past [\[2012\]](https://en.wikipedia.org/wiki/2012_LinkedIn_hack) [\[2023\]](https://cybernews.com/news/stolen-data-of-500-million-linkedin-users-being-sold-online-2-million-leaked-as-proof-2/) [\[2024\]](https://www.linkedin.com/pulse/copy-urgent-notice-massive-data-leak-2024-26-billion-records-tugimin-ig1hc), as well as
-having been subject to countless lawsuits [\[2018\]](https://news.ycombinator.com/item?id=18525511) [\[2023\]](https://news.ycombinator.com/item?id=38081633) [\[2025\]](https://www.bbc.co.uk/news/articles/cdxevpzy3yko) regarding user privacy and
-personal data? 
+which has already suffered several data leaks in the past
+[\[2012\]](https://en.wikipedia.org/wiki/2012_LinkedIn_hack)
+[\[2023\]](https://cybernews.com/news/stolen-data-of-500-million-linkedin-users-being-sold-online-2-million-leaked-as-proof-2/)
+[\[2024\]](https://www.linkedin.com/pulse/copy-urgent-notice-massive-data-leak-2024-26-billion-records-tugimin-ig1hc),
+as well as having been subject to countless lawsuits
+[\[2018\]](https://news.ycombinator.com/item?id=18525511)
+[\[2023\]](https://news.ycombinator.com/item?id=38081633)
+[\[2025\]](https://www.bbc.co.uk/news/articles/cdxevpzy3yko) regarding
+user privacy and personal data?
 
 So, I'd like to delete my LinkedIn account completely. I don't
 particularly find any value in its data mining practices and largely
