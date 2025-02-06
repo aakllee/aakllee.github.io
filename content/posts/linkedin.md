@@ -60,7 +60,8 @@ as well as having been subject to countless lawsuits
 [\[2018\]](https://news.ycombinator.com/item?id=18525511)
 [\[2023\]](https://news.ycombinator.com/item?id=38081633)
 [\[2025\]](https://www.bbc.co.uk/news/articles/cdxevpzy3yko) regarding
-user privacy and personal data?
+user privacy and personal data? The last thing I need is some crook
+with a penchant for identity theft flaunting my passport around.
 
 So, I'd like to delete my LinkedIn account completely. I don't
 particularly find any value in its data mining practices and largely
