@@ -72,6 +72,10 @@ Computer Science. In part, this was due to having achieved a perfect
 score in my final year software engineering project—the first to have
 ever been achieved in the school.
 
+## Hobbies
+In my spare time I enjoy reading, hiking, baking, tennis, badminton,
+art, and chess.
+
 ## Contact
 Feel free to contact me as you like: \
 Email: `Aaron {at} akll.org` \
