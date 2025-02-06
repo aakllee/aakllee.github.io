@@ -28,7 +28,7 @@ to fill in a dozen captchas, and surrender my phone number for
 what world does using one here verify anything?). And then, oh what a
 surprise I just get taken back to the login screen.
 
-![Verification hell](/images/linkedinmaxnumber.webp)
+![Captcha hell](/images/captcha.webp)
 
 But okay! I can handle terrible user experience, what else can you
 expect? It's a Microsoft platform after all, that's simply the
@@ -47,6 +47,8 @@ But I have better things to do, so I go off to do such better
 things. I come back later and try again and now, my phone number is
 rejected because the "maximum number of times" I can do this has been
 exceeded. So I can't even verify myself even if I wanted to.
+
+![Verification hell](/images/linkedinmaxnumber.webp)
 
 And do I want to? Absolutely not. To provide such documentation would
 be a massive invasion of privacy. And how could anyone trust a company
@@ -74,6 +76,5 @@ over and don't have to worry about suddenly locking me out. As a
 bonus, doesn't take 30 seconds to load, no tracking, no adverts, and
 no corporate BS. Happy days. 
 
-![Captcha hell](/images/captcha.webp)
 
 For those interested, the site is built using [Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on GitHub Pages. 
