@@ -52,15 +52,15 @@ exceeded. So I can't even verify myself even if I wanted to.
 
 And do I want to? Absolutely not. To provide such documentation would
 be a massive invasion of privacy. And how could anyone trust a company
-which has already suffered several data leaks in the past
-[\[2012\]](https://en.wikipedia.org/wiki/2012_LinkedIn_hack)
+which has already made its users victims to several data leaks in the
+past [\[2012\]](https://en.wikipedia.org/wiki/2012_LinkedIn_hack)
 [\[2023\]](https://cybernews.com/news/stolen-data-of-500-million-linkedin-users-being-sold-online-2-million-leaked-as-proof-2/)
 [\[2024\]](https://www.linkedin.com/pulse/copy-urgent-notice-massive-data-leak-2024-26-billion-records-tugimin-ig1hc),
 as well as having been subject to countless lawsuits
 [\[2018\]](https://news.ycombinator.com/item?id=18525511)
 [\[2023\]](https://news.ycombinator.com/item?id=38081633)
 [\[2025\]](https://www.bbc.co.uk/news/articles/cdxevpzy3yko) regarding
-user privacy and personal data? The last thing I need is some crook
+user privacy and personal data? The last thing I need, is some crook
 with a penchant for identity theft flaunting my passport around.
 
 So, I'd like to delete my LinkedIn account completely. I don't
