@@ -59,3 +59,5 @@ bonus, doesn't take 30 seconds to load, no tracking, no adverts, and
 no corporate BS. Happy days. 
 
 ![Captcha hell](/images/captcha.webp)
+
+For those interested, the site is built using [Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on GitHub Pages. 
