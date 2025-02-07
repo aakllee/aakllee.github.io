@@ -117,7 +117,7 @@ first-years, I would say it was quite the success.
 I also later wrote a script in Julia to parse genomic data for *Mex* and
 produce a codon frequency usage table, available [here](https://2024.igem.wiki/warwick/contribution#codon-usage-frequency-table).
 
-## Jamboree / Presentation
+## Jamboree
 ![The team at the Jamboree](teamjamboree.webp)
 
 In October we (all but one member who was sadly unable to come)
@@ -139,19 +139,23 @@ the high school teams as they were shaking and stuttering presenting
 in the awards ceremony[^6]. Even the mess of the tech organisation and
 €10 sandwiches had a sort of charm...
 
-![Fred lost and found](fredfound.webp)
 
 [^6]: The applause and cheering might have made things worse, but the 
 	thought was there.
 
-It was great to walk around the venue talking to other teams. I found
-[McGill's project](https://2024.igem.wiki/mcgill/description)
-particularly interesting, with their use of DNA computing. 
 
-{{< columns >}} The Paris Jamboree was also my first real experience
-of presenting to a live public audience. In the recording of our full
-talk, I walk in at the 7:00 mark and you can see my hand swinging like
-a pendulum (probably because I was told to move my hands). 
+
+## Presentation
+![Me presenting](presentation.webp) Whilst it was great to walk around
+the venue talking to other teams (I found [McGill's
+project](https://2024.igem.wiki/mcgill/description) particularly
+interesting, with their use of DNA computing), the
+Jamboree was also my first real experience of presenting to a live
+public audience.  
+
+{{< columns >}} In the recording of our full talk, I walk in at the
+7:00 mark and you can see my hand swinging like a pendulum (probably
+because I was told to move my hands).
 
 It's not immediately apparent but I'm actually a lot better than in
 the interview presentation, and I'm really quite proud of how I did
@@ -164,8 +168,17 @@ which was a surprise but rather high praise I felt.
 
 {{< endcolumns >}}
 
-![Booth signs meme](boothsignsmeme.webp)
-
+## Conclusion
+![Booth signs meme](boothsignsmeme.webp) iGEM has, in my opinion been
+one of the most enjoyable experiences I've ever had. I've met so many
+incredible people, been able to work on cutting edge research, and
+learned such a lot. Warwick however will sadly not be participating in
+2025 [^7], so this would likely have been the only time I would ever
+have practically been able to participate. So I'm glad that I did this
+when I did, and I wouldn't have traded this experience for
+anything. Many thanks to my most excellent teammates and supervisors
+for making everything possible. For anyone wanting to learn more, feel
+free to reach out—my contact details are [here](/about/). 
 
 
 [^1]: I mention this number not to undercut our accomplishments, but
@@ -173,8 +186,10 @@ which was a surprise but rather high praise I felt.
     each and every team brought to the competition.
 	
 [^2]: My Computer Science / Engineering background shining through
-    there
+    there.
 
 [^3]: Often the mind wanders to food...
 
 [^4]: Website graphics and code designed and written by me, content written by all team members. 
+
+[^7]: Administrivia.
