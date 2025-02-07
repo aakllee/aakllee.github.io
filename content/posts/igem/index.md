@@ -188,7 +188,7 @@ free to reach out—my contact details are [here](/about/).
 [^2]: My Computer Science / Engineering background shining through
     there.
 
-[^3]: Often the mind wanders to food...
+[^3]: Including a joke about the 'price of fish' as a transition between the two hahahaha... I'm so sorry. 
 
 [^4]: Website graphics and code designed and written by me, content written by all team members. 
 
