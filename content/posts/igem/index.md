@@ -1,7 +1,7 @@
 +++
 date = '2025-02-07T17:48:38Z'
 draft = false
-title = 'Engineering bacteria to recycle rare earth metals: iGEM 2024'
+title = 'Warwick iGEM 2024: moving metal with bacteria'
 disableToc = false
 +++
 
