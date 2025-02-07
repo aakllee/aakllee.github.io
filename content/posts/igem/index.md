@@ -188,7 +188,9 @@ free to reach out—my contact details are [here](/about/).
 [^2]: My Computer Science / Engineering background shining through
     there.
 
-[^3]: Including a joke about the 'price of fish' as a transition between the two hahahaha... I'm so sorry. 
+[^3]: Including a joke about the 'price of fish' as a transition
+    between the two hahahaha... I'm so sorry. I still think it was
+    funny though.
 
 [^4]: Website graphics and code designed and written by me, content written by all team members. 
 
