@@ -3,7 +3,6 @@ languageCode = 'en-GB'
 title = 'Aaron Lee'
 theme = "poison"
 
-
 # paginate = 10
 pagination.pagerSize = 10
 pluralizelisttitles = false   # removes the automatically appended "s" on sidebar entries
@@ -81,9 +80,9 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
     # Hex colors for your content in dark mode
     code_color_dark = "#FFF"                        # default is #FFF
-    code_background_color_dark = "#515151"          # default is #515151
+    code_background_color_dark = "#202020"          # default is #515151
     code_block_color_dark = "#FFF"                  # default is #FFF
-    code_block_background_color_dark = "#272822"    # default is #272822
+    code_block_background_color_dark = "#202020"    # default is #272822
     content_bg_color_dark = "#121212"               # default is #121212
     date_color_dark = "#9A9A9A"                     # default is #9A9A9A
     link_color_dark = "#268BD2"                     # default is #268BD2

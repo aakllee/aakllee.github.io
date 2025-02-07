@@ -2,6 +2,7 @@
 date = '2025-02-06T17:17:05Z'
 draft = false
 title = 'LinkedIn hell and the birth of my new website'
+disableToc = true
 +++
 
 Greetings all, and welcome to the first post on this here website—a

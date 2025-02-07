@@ -2,6 +2,7 @@
 date = '2025-02-06T12:12:10Z'
 draft = false
 title = 'About'
+disableToc = false
 +++
 
 Hello, my name is Aaron; I am a student at the University of
@@ -21,7 +22,7 @@ therapy](https://www.youtube.com/watch?v=J3FcbFqSoQY), and subsequent
 [spider silk-producing
 yeast](https://youtu.be/Fx8TcGrCOSI?feature=shared). This encouraged
 me to engage in various DIY biologist and engineering communities, and
-inspired both my A-level choices (Maths, CompSci, Biology, Chemistry)
+inspired both my A-level choices (Biology, Chemistry, CompSci, Maths)
 and choice of degree.
 
 I actively engage in interdisciplinary research projects, having
@@ -44,14 +45,15 @@ computational systems modelling for biological systems, involving a
 range of methodologies including ODE-based modelling and agent-based
 modelling.
 
-For hardware design, I am proficient in Verilog for FPGA programmable
-logic design. In terms of electronics/robotics, I have used Raspberry
-Pi SBCs and Arduinos in a number of personal projects—such as
-3D-printed animatronic puppets and automatons—and often hack together
-electronic systems for the odd problem life throws in my way. In my
-first year of university for example, I constructed a door-activated
-alarm system to stop myself from leaving my key inside my room. I was
-promptly made to take it down due to its resemblance to a bomb.
+Closer to the hardware, I am proficient in Verilog for FPGA
+programmable logic design. For electronics/robotics, I have
+used Raspberry Pi SBCs and Arduinos in a number of personal
+projects—such as 3D-printed animatronic puppets and automatons—and
+often hack together electronic systems for the odd problem life throws
+in my way. In my first year of university for example, I constructed a
+door-activated alarm system to stop myself from leaving my key inside
+my room. I was promptly made to take it down due to its resemblance to
+a bomb.
 
 I also have some small experience in the wet lab, having skills in
 pipetting, PCR, gel electrophoresis, plasmid preparation, and other
