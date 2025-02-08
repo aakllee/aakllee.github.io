@@ -6,7 +6,7 @@ disableToc = true
 +++
 
 Greetings all, and welcome to the first post on this here website—a
-website born not of love, but of hate, vice, and sin.
+website born not of love, but of hate, vice, and spite.
 
 Now that's not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
@@ -29,7 +29,7 @@ to fill in a dozen captchas, and surrender my phone number for
 what world does using one here verify anything?). And then, oh what a
 surprise I just get taken back to the login screen.
 
-![Captcha hell](/images/captcha.webp)
+![Captcha hell](captcha.webp)
 
 But okay! I can handle terrible user experience, what else can you
 expect? It's a Microsoft platform after all, that's simply the
@@ -49,7 +49,7 @@ things. I come back later and try again and now, my phone number is
 rejected because the "maximum number of times" I can do this has been
 exceeded. So I can't even verify myself even if I wanted to.
 
-![Verification hell](/images/linkedinmaxnumber.webp)
+![Verification hell](linkedinmaxnumber.webp)
 
 And do I want to? Absolutely not. To provide such documentation would
 be a massive invasion of privacy. And how could anyone trust a company
