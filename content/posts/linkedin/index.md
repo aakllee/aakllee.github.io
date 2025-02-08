@@ -3,18 +3,19 @@ date = '2025-02-06T17:17:05Z'
 draft = false
 title = 'LinkedIn hell and the birth of my new website'
 disableToc = true
+tags = ['Technology', 'Privacy', 'Cybersecurity', 'akll.org']
 +++
 
 Greetings all, and welcome to the first post on this here website—a
 website born not of love, but of hate, vice, and spite.
 
-Now that's not to say that I haven't taken care in creating this
+Which is not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
 writings. Quality writings such as these. Quality writings, the likes
 of which I am now unable to post on LinkedIn, which has "temporarily
 restricted" my account.
 
-Now why was it temporarily restricted I hear you ask? Well, one day I
+So why was it temporarily restricted I hear you ask? Well one day I
 thought to connect my account with my university Outlook profile, and
 then the next I was logged out of my account. Which happens, major
 account changes tend to trigger such things for security—password
@@ -40,9 +41,8 @@ third party company to recover it. Which considering I already
 verified via my university email address, is an obviously contrived
 excuse to imbibe my personal data to be sold off to God knows where. I
 never had my ID on here before, why should adding it now verify
-anything? It is a malicious and insidious pattern which permeates not
-just LinkedIn, but the very veins of the internet, and quite frankly
-should be illegal (in fact it likely already is).
+anything? It is a malicious and insidious pattern which should quite
+frankly be illegal (in fact it likely already is).
 
 But I have better things to do, so I go off to do such better
 things. I come back later and try again and now, my phone number is
@@ -61,8 +61,8 @@ as well as having been subject to countless lawsuits
 [\[2018\]](https://news.ycombinator.com/item?id=18525511)
 [\[2023\]](https://news.ycombinator.com/item?id=38081633)
 [\[2025\]](https://www.bbc.co.uk/news/articles/cdxevpzy3yko) regarding
-user privacy and personal data? The last thing I need, is some crook
-with a penchant for identity theft flaunting my passport around.
+user privacy and personal data? The last thing I need, is a crook with
+a penchant for identity theft flaunting my passport around.
 
 So, I'd like to delete my LinkedIn account completely. I don't
 particularly find any value in its data mining practices and largely
@@ -79,4 +79,8 @@ bonus, doesn't take 30 seconds to load, no tracking, no adverts, and
 no corporate BS. Happy days. 
 
 
-For those interested, the site is built using [Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on GitHub Pages. 
+For those interested, the site is built using
+[Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on
+GitHub Pages. Comments via [utteranc.es](https://utteranc.es). I do
+recognise the irony of hosting my website on another Microsoft-owned
+platform, but this one at least isn't a complete dumpster fire.

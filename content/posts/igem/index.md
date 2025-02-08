@@ -3,9 +3,10 @@ date = '2025-02-07T17:48:38Z'
 draft = false
 title = 'Warwick iGEM 2024: moving metal with bacteria'
 disableToc = false
+tags = ['Synthetic Biology', 'iGEM', 'Warwick', 'Research']
 +++
 
-![Photograph of the team all together. Me on the far right.](team.webp)
+![Photograph of the team all together. Me on the far right.](/posts/igem/team.webp)
 
 From February to October 2024, I competed in the [international
 Genetically Engineered Machines (iGEM)
@@ -54,7 +55,7 @@ just about launched through the ceiling when the e-mail came through.
 
 {{< column >}}
 
-![Gas vesicles rejected idea animation](gasvesicles.webp)
+![Gas vesicles rejected idea animation](/posts/igem/gasvesicles.webp)
 
 {{< endcolumns >}}
 
@@ -79,7 +80,7 @@ scavenger.
 
 {{< column >}}
 
-![Chemotaxis animation](chemotaxis.webp)
+![Chemotaxis animation](/posts/igem/chemotaxis.webp)
 
 {{< endcolumns >}}
 
@@ -118,7 +119,7 @@ I also later wrote a script in Julia to parse genomic data for *Mex* and
 produce a codon frequency usage table, available [here](https://2024.igem.wiki/warwick/contribution#codon-usage-frequency-table).
 
 ## Jamboree
-![The team at the Jamboree](teamjamboree.webp)
+![The team at the Jamboree](/posts/igem/teamjamboree.webp)
 
 In October we (all but one member who was sadly unable to come)
 travelled to Paris to attend the Jamboree. We met up with the other UK
@@ -169,7 +170,7 @@ which was a surprise but rather high praise I felt.
 {{< endcolumns >}}
 
 ## Conclusion
-![Booth signs meme](boothsignsmeme.webp) iGEM has, in my opinion been
+![Booth signs meme](/posts/igem/boothsignsmeme.webp) iGEM has, in my opinion been
 one of the most enjoyable experiences I've ever had. I've met so many
 incredible people, been able to work on cutting edge research, and
 learned such a lot. Warwick however will sadly not be participating in

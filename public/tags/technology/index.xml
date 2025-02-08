@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on Aaron Lee</title>
+    <link>//localhost:1313/tags/technology/</link>
+    <description>Recent content in Technology on Aaron Lee</description>
+    <generator>Hugo</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 06 Feb 2025 17:17:05 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LinkedIn hell and the birth of my new website</title>
+      <link>//localhost:1313/posts/linkedin/</link>
+      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
+      <guid>//localhost:1313/posts/linkedin/</guid>
+      <description>&lt;p&gt;Greetings all, and welcome to the first post on this here website—a&#xA;website born not of love, but of hate, vice, and spite.&lt;/p&gt;&#xA;&lt;p&gt;Which is not to say that I haven&amp;rsquo;t taken care in creating this&#xA;site. Quite the opposite, I intend to populate it with quality&#xA;writings. Quality writings such as these. Quality writings, the likes&#xA;of which I am now unable to post on LinkedIn, which has &amp;ldquo;temporarily&#xA;restricted&amp;rdquo; my account.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
