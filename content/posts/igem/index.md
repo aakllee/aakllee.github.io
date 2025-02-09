@@ -139,20 +139,18 @@ José who would meet up with us throughout the whole Jamboree. By the
 end we were sitting by the Seine together, and it was almost too hard
 to say goodbye. 
 
-
-
 There was a real sort of spirit in the event too, with at least 2
-people dressed as cows (*cough* Exeter *cough*), a walking corn cob, a
+people dressed as cows (*cough Exeter cough*), a walking corn cob, a
 giant mosquito... and an astonishingly large number of memes being
 generated *live as the awards were being announced* (courtesy of iGEM
 Düsseldorf). And it was really sweet too, the support everyone gave to
-the high school teams as they were shaking and stuttering presenting
-in the awards ceremony[^6]. Even the mess of the tech organisation and
-€10 sandwiches had a sort of charm...
+the high school teams as they were presenting in the awards
+ceremony[^6]. Even the mess of the tech organisation and €10
+sandwiches had a sort of charm...
 
 
-[^6]: The applause and cheering might have made things worse, but the 
-	thought was there.
+[^6]: The applause and cheering might have made things worse, but it's
+	the thought that counts.
 
 
 
@@ -162,7 +160,7 @@ the venue talking to other teams (I found [McGill's
 project](https://2024.igem.wiki/mcgill/description) particularly
 interesting, with their use of DNA computing), the
 Jamboree was also my first real experience of presenting to a live
-public audience.  
+public audience.
 
 {{< columns >}} In the recording of our full talk, I walk in at the
 7:00 mark and you can see my hand swinging like a pendulum (probably
@@ -180,13 +178,15 @@ which was a surprise but rather high praise I felt.
 {{< endcolumns >}}
 
 ## Conclusion
-![Booth signs meme](/posts/igem/boothsignsmeme.webp) iGEM has, in my
-opinion been one of the most enjoyable experiences I've ever had. I've
-met so many incredible people, been able to work on cutting edge
-research, and learned such a lot. Warwick will sadly not be
-participating in 2025 [^7], so this would likely have been the only
-time I would ever have practically been able to participate. So I'm
-glad that I did this when I did, and I wouldn't have traded this
+![Booth signs meme](/posts/igem/boothsignsmeme.webp) 
+*Figure: UK teams requisitioning booth signs. Meme by iGEM Düsseldorf.*
+
+iGEM has, in my opinion been one of the most enjoyable experiences
+I've ever had. I've met so many incredible people, been able to work
+on cutting edge research, and learned such a lot. Warwick will sadly
+not be participating in 2025 [^7], so this would likely have been the
+only time I would ever have practically been able to participate. So
+I'm glad that I did this when I did, and I wouldn't have traded this
 experience for anything. Many thanks to my most excellent teammates
 and supervisors for making everything possible. For anyone wanting to
 learn more or shout at me, feel free to reach out
