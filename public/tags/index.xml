@@ -64,5 +64,26 @@
       <guid>//localhost:1313/tags/technology/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Electronics</title>
+      <link>//localhost:1313/tags/electronics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tags/electronics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SynBio</title>
+      <link>//localhost:1313/tags/synbio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tags/synbio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>University</title>
+      <link>//localhost:1313/tags/university/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tags/university/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

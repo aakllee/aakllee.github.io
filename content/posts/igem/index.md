@@ -7,7 +7,7 @@ series = 'University'
 tags = ['Synthetic Biology', 'iGEM', 'Warwick', 'Research']
 +++
 
-![Photograph of the team all together. Me on the far right.](/posts/igem/team.webp)
+![Photograph of the team all together. Me on the far right.](/posts/igem/parisigemnight.webp)
 
 From February to October 2024, I competed in the [international
 Genetically Engineered Machines (iGEM)
