@@ -46,13 +46,14 @@ on one of the solutions anyone had presented.
 Being the double-A Aaron I am, I presented first—which honestly may
 have saved me. Watching everyone else's beautifully crafted,
 enthusiastic and confident presentations was more than a little
-disheartening. I began to think it would be impossible to be chosen
+demoralising. I began to think it would be impossible to be chosen
 over the others. This was still only a few months into my first-year,
 straight out of sixth form, so back then my public speaking skills
 were ...less than perfect.
 
-So you can imagine how ecstatic I was to have a place on the team, I
-just about launched through the ceiling when the e-mail came through. 
+So you can imagine just how ecstatic I was when I found out I had a
+place on the team, I just about launched through the ceiling when the
+e-mail came through.
 
 {{< column >}}
 
@@ -61,7 +62,7 @@ just about launched through the ceiling when the e-mail came through.
 {{< endcolumns >}}
 
 Over the following weeks we then met the other team members,
-brainstormed ideas, and settled on the final idea. We then considered
+brainstormed, and settled on the final idea. We then considered
 possible methods of bacterial movement. An interesting idea was using
 gas vesicles (pictured above) to make the bacteria float, however in
 the interest of feasibility we chose not to explore such uncertain
@@ -91,17 +92,17 @@ process, results, and protocols.
 
 
 ## Modelling / Software
-My primary role in the team was as part of the dry lab team,
-developing computer-aided design tools to provide simulations of our
-bacterial systems to inform design decisions. This was something I
+My primary role was as part of the dry lab team, developing
+computer-aided design tools for simulating our bacterial systems to
+inform design decisions and future directions. This was something I
 enjoyed a great deal. Working with the wet lab team to define model
-development and parameters was oddly rewarding. 
+development and parameters was oddly rewarding.
 
-Our dry lab team was further split into 3, each to manage one of three
-parts (but all collaborating on each): the gene regulatory network
-model (ODEs, Laiba Wahab); the population model (PDEs, Francesco Papini); and the
-agent-based model (OOP, me). We document the models
-[here](https://2024.igem.wiki/warwick/model).
+Our dry lab team was further split into 3, each to manage an
+independent task (but all collaborating on each): the gene regulatory
+network model (ODEs, Laiba Wahab); the population model (PDEs,
+Francesco Papini); and the agent-based model (OOP, me). We document
+the models [here](https://2024.igem.wiki/warwick/model).
 
 At the start of iGEM I was woefully incompetent in mathematical
 modelling, and knew next to nothing about agent-based modelling—I
@@ -111,13 +112,21 @@ them to model anything.
 But as we became more familiar with the biological side of things (via
 workshops on molecular biology, and absorbing terminology through
 talking to the biologists) it became easier and easier to reason about
-our models. By the end of the project, I even began to identify a
-number of flaws, but it was much too late by then, of course. However,
-for a first foray into biological systems modelling, for a group of 3
-first-years, I would say it was quite the success.
+our models. And gradually the models we had made began to make sense
+without needing to scrutinise them for half an hour just to comprehend
+the mathematical notation. By the end of the project, I even began to
+identify a number of areas for further improvement, but it was too
+late by then to implement them. However, for a first foray into
+biological systems modelling, for a group of 3 first-years, I would
+say it was quite the success.
 
-I also later wrote a script in Julia to parse genomic data for *Mex* and
-produce a codon frequency usage table, available [here](https://2024.igem.wiki/warwick/contribution#codon-usage-frequency-table).
+I also towards the end of the project wrote a script in Julia to parse
+genomic data for *Mex* and produce a codon frequency usage table,
+available
+[here](https://2024.igem.wiki/warwick/contribution#codon-usage-frequency-table).
+I don't believe we actually used it, but it was something requested by
+one of the biologists. It would theoretically be useful for
+optimisation strategies in future designs.
 
 ## Jamboree
 ![The team at the Jamboree](/posts/igem/teamjamboree.webp)
@@ -171,16 +180,17 @@ which was a surprise but rather high praise I felt.
 {{< endcolumns >}}
 
 ## Conclusion
-![Booth signs meme](/posts/igem/boothsignsmeme.webp) iGEM has, in my opinion been
-one of the most enjoyable experiences I've ever had. I've met so many
-incredible people, been able to work on cutting edge research, and
-learned such a lot. Warwick however will sadly not be participating in
-2025 [^7], so this would likely have been the only time I would ever
-have practically been able to participate. So I'm glad that I did this
-when I did, and I wouldn't have traded this experience for
-anything. Many thanks to my most excellent teammates and supervisors
-for making everything possible. For anyone wanting to learn more, feel
-free to reach out—my contact details are [here](/about/). 
+![Booth signs meme](/posts/igem/boothsignsmeme.webp) iGEM has, in my
+opinion been one of the most enjoyable experiences I've ever had. I've
+met so many incredible people, been able to work on cutting edge
+research, and learned such a lot. Warwick will sadly not be
+participating in 2025 [^7], so this would likely have been the only
+time I would ever have practically been able to participate. So I'm
+glad that I did this when I did, and I wouldn't have traded this
+experience for anything. Many thanks to my most excellent teammates
+and supervisors for making everything possible. For anyone wanting to
+learn more or shout at me, feel free to reach out
+([contact](/about/)).
 
 
 [^1]: I mention this number not to undercut our accomplishments, but
@@ -194,6 +204,7 @@ free to reach out—my contact details are [here](/about/).
     between the two hahahaha... I'm so sorry. I still think it was
     funny though.
 
-[^4]: Website graphics and code designed and written by me, content written by all team members. 
+[^4]: Website graphics and code designed and written by me, content
+    written by all team members.
 
 [^7]: Administrivia.
