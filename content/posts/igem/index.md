@@ -3,6 +3,7 @@ date = '2025-02-07T17:48:38Z'
 draft = false
 title = 'Warwick iGEM 2024: moving metal with bacteria'
 disableToc = false
+series = 'University'
 tags = ['Synthetic Biology', 'iGEM', 'Warwick', 'Research']
 +++
 

@@ -1,19 +1,20 @@
 +++
 date = '2025-02-06T17:17:05Z'
 draft = false
-title = 'LinkedIn hell and the birth of my new website'
+title = 'LinkedIn purgatory and this website'
 disableToc = true
+series = 'Tech rants'
 tags = ['Technology', 'Privacy', 'Cybersecurity', 'akll.org']
 +++
 
-Greetings all, and welcome to the first post on this here website—a
-website born not of love, but of hate, vice, and spite.
+Greetings all, and welcome to the first post on this website—a website
+born not of love, but of hate, vice, and spite.
 
 Which is not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
 writings. Quality writings such as these. Quality writings, the likes
 of which I am now unable to post on LinkedIn, which has "temporarily
-restricted" my account.
+restricted" my account. Hence purgatory. 
 
 So why was it temporarily restricted I hear you ask? Well one day I
 thought to connect my account with my university Outlook profile, and
@@ -83,4 +84,8 @@ For those interested, the site is built using
 [Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on
 GitHub Pages. Comments via [utteranc.es](https://utteranc.es). I do
 recognise the irony of hosting my website on another Microsoft-owned
-platform, but this one at least isn't a complete dumpster fire.
+platform, but this one at least isn't a complete dumpster fire
+(yet). I used to self-host on a Pi 3B+ (OpenBSD + httpd) but have
+since gutted my server out for other projects during the 2020-2023
+[chip
+shortage](https://en.wikipedia.org/wiki/2020%E2%80%932023_global_chip_shortage).

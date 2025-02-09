@@ -26,7 +26,7 @@ inspired both my A-level choices (Biology, Chemistry, CompSci, Maths)
 and choice of degree.
 
 I actively engage in interdisciplinary research projects, having
-participated in iGEM 2024 to engineer a bacterial system for
+[participated](/posts/igem) in iGEM 2024 to engineer a bacterial system for
 lanthanide transport, as well as smaller projects such as applying
 machine learning to butterfly wing image segmentation and analysis. 
 
