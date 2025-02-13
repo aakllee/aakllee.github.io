@@ -6,15 +6,15 @@ disableToc = false
 +++
 
 Hello, my name is Aaron; I am a student at the University of
-Warwick. I study a combination of computer and biomedical systems
-engineering, and molecular and systems biology.
+Warwick. I study a combination of computer science, biomedical and
+systems engineering, and molecular systems biology.
 
 My main interests lie in [synthetic/engineering
 biology](https://en.wikipedia.org/wiki/Synthetic_biology), in the
-application of computational and engineering methods to synthetic
-genetic circuitry.
+application of computational and engineering methods to biomedical and
+clinical sciences.
 
-Synthetic biology is a field I have been passionate about since very
+Engineering biology is a field I have been passionate about since very
 early on in my life—I was first exposed to genetic engineering in year
 8 (2018), with the release of Justin Atkin's presentation of his [DIY
 lactose intolerance gene
@@ -26,12 +26,13 @@ inspired both my A-level choices (Biology, Chemistry, CompSci, Maths)
 and choice of degree.
 
 I actively engage in interdisciplinary research projects, having
-[participated](/posts/igem) in iGEM 2024 to engineer a bacterial system for
-lanthanide transport, as well as smaller projects such as applying
-machine learning to butterfly wing image segmentation and analysis. 
+[participated](/posts/igem) in iGEM 2024 as a computational biologist
+to engineer a bacterial system for lanthanide transport, as well as
+smaller projects such as applying machine learning to butterfly wing
+image segmentation and analysis.
 
-I am currently researching optimal control of immunotherapy for
-treatment of cancer.
+I am currently working on a group research project for the use of
+genomic sequencing data in optimal control of immunotherapy.
 
 ## Skills
 For software engineering, I am proficient in a variety of general purpose
@@ -66,7 +67,8 @@ to transport rare earth metals through a solution for recycling. Our
 project included a range of dry lab, wet lab, and human practices
 work, for which we were awarded a [gold
 medal](https://warwick.ac.uk/fac/sci/dcs/news/?newsItem=8ac672c492d39b5d0192e6ffcbc10b44)
-at the 2024 Paris Jamboree.
+at the 2024 Paris Jamboree. I wrote up my experiences of the project
+[here](/posts/igem).
 
 **Award for Computer Science—Gravesend Grammar School**:  During my
 time in Sixth Form, I was awarded the Kuldeep Singh Cheema trophy for
