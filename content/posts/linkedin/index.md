@@ -12,9 +12,13 @@ born not of love, but of hate, vice, and spite.
 
 Which is not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
-writings. Quality writings such as these. Quality writings, the likes
-of which I am now unable to post on LinkedIn, which has "temporarily
-restricted" my account. Hence purgatory. 
+writings. 
+
+Quality writings such as these. 
+
+Quality writings, the likes of which I am now unable to post on
+LinkedIn, which has "temporarily restricted" my account. Hence
+purgatory.
 
 So why was it temporarily restricted I hear you ask? Well one day I
 thought to connect my account with my university Outlook profile, and
@@ -76,11 +80,11 @@ for teaching me UK data privacy law.
 
 Anyway. That's why I have this site now, which I have complete control
 over and don't have to worry about suddenly locking me out. As a
-bonus, doesn't take 30 seconds to load, no tracking, no adverts, and
-no corporate BS. Happy days. 
+bonus, doesn't take 30 seconds to load, no tracking, and no
+adverts. Happy days.
 
 
-For those interested, the site is built using
+For those interested in the technical details, the site is built using
 [Hugo/Poison](https://themes.gohugo.io/themes/poison/), hosted on
 GitHub Pages. Comments via [utteranc.es](https://utteranc.es). I do
 recognise the irony of hosting my website on another Microsoft-owned

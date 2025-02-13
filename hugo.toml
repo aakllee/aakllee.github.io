@@ -1,4 +1,4 @@
-baseURL = '//akll.org/'
+baseURL = '//aaronklee.com/'
 languageCode = 'en-GB'
 title = 'Aaron Lee'
 theme = "poison"
@@ -8,7 +8,7 @@ pagination.pagerSize = 10
 pluralizelisttitles = false   # removes the automatically appended "s" on sidebar entries
 
 [params]
-    brand = "Aaron K. L. Lee" 
+    brand = "Aaron K. Lee" 
     # remote_brand_image = 'https://github.com/USERNAME.png' # path to a remote file
     brand_image = "/images/pfp.webp"    # path to the image shown in the sidebar
     description = "CSE @ University of Warwick" # Used as default meta description if not specified in front matter
