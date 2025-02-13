@@ -7,6 +7,13 @@ series = 'Tech rants'
 tags = ['Technology', 'Privacy', 'Cybersecurity', 'akll.org']
 +++
 
+TLDR: LinkedIn has randomly disabled my account, having prevented me
+from logging in due to a broken login system, then demanded my
+passport/driving licence to reinstate my account, before then blocking
+me from even giving that to them anyway.
+
+***
+
 Greetings all, and welcome to the first post on this website—a website
 born not of love, but of hate, vice, and spite.
 
