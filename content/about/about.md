@@ -7,7 +7,7 @@ disableToc = false
 
 Hello, my name is Aaron; I am a student at the University of
 Warwick. I study a combination of computer science, biomedical and
-systems engineering, and molecular systems biology.
+systems engineering, and molecular and systems biology.
 
 My main interests lie in [synthetic/engineering
 biology](https://en.wikipedia.org/wiki/Synthetic_biology), in the
