@@ -1,6 +1,6 @@
 +++
 date = '2025-02-06T17:17:05Z'
-draft = false
+draft = true
 title = 'LinkedIn purgatory and this website'
 disableToc = true
 series = 'Tech rants'
