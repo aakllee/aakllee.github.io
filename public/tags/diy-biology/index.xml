@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SynBio on Aaron Lee</title>
-    <link>//localhost:1313/tags/synbio/</link>
-    <description>Recent content in SynBio on Aaron Lee</description>
+    <title>DIY Biology on Aaron Lee</title>
+    <link>//localhost:1313/tags/diy-biology/</link>
+    <description>Recent content in DIY Biology on Aaron Lee</description>
     <generator>Hugo</generator>
     <language>en-GB</language>
     <lastBuildDate>Wed, 05 Mar 2025 22:06:51 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/synbio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/diy-biology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attempting to cure my eczema by: gene therapy</title>
       <link>//localhost:1313/posts/eczemagenetherapy/</link>

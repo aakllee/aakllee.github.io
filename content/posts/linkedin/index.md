@@ -1,6 +1,6 @@
 +++
 date = '2025-02-06T17:17:05Z'
-draft = true
+draft = false
 title = 'LinkedIn purgatory and this website'
 disableToc = true
 series = 'Tech rants'
@@ -14,8 +14,10 @@ me from even giving that to them anyway.
 
 ***
 
-Greetings all, and welcome to the first post on this website—a website
+Greetings all, and welcome to the first post[^1] on this website—a website
 born not of love, but of hate, vice, and spite.
+
+[^1]: I will be transferring some posts from my previous website, now defunct. So some articles may appear before this in the timeline. 
 
 Which is not to say that I haven't taken care in creating this
 site. Quite the opposite, I intend to populate it with quality
