@@ -162,14 +162,14 @@ interesting, with their use of DNA computing), the
 Jamboree was also my first real experience of presenting to a live
 public audience.
 
-[comment]: {{< columns >}} In the recording of our full talk, I walk in at the 7:00 mark and you can see my hand swinging like a pendulum (probably because I was told to move my hands).
+[comment]: < columns >}} In the recording of our full talk, I walk in at the 7:00 mark and you can see my hand swinging like a pendulum (probably because I was told to move my hands).
 
 It's not immediately apparent but I'm actually a lot better than in
 the interview presentation, and I'm really quite proud of how I did
 here. A teammate even told me I seemed calm and relaxed afterwards,
 which was a surprise but rather high praise I felt.
 
-[comment]: {{< video src="presentation.mp4" width="100%" >}}
+[comment]: < video src="presentation.mp4" width="100%" >}}
 
 ## Conclusion
 ![Booth signs meme](/posts/igem/boothsignsmeme.webp) 

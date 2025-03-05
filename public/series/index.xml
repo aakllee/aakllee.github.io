@@ -15,12 +15,5 @@
       <guid>//localhost:1313/series/university/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Tech Rants</title>
-      <link>//localhost:1313/series/tech-rants/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/series/tech-rants/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
