@@ -41,8 +41,6 @@ potential diagnostics for infected salmon in fish farms[^3]. We were
 then randomly assigned groups and made to perform a group presentation
 on one of the solutions anyone had presented.
 
-[comment]: {< columns >}}
-
 Being the double-A Aaron I am, I presented first—which honestly may
 have saved me. Watching everyone else's beautifully crafted,
 enthusiastic and confident presentations was more than a little
@@ -55,12 +53,6 @@ So you can imagine just how ecstatic I was when I found out I had a
 place on the team, I just about launched through the ceiling when the
 e-mail came through.
 
-[comment]: {{< column >}}
-
-[comment]: ![Gas vesicles rejected idea animation](/posts/igem/gasvesicles.webp)
-
-[comment]: {{< endcolumns >}}
-
 Over the following weeks we then met the other team members,
 brainstormed, and settled on the final idea. We then considered
 possible methods of bacterial movement. An interesting idea was using
@@ -70,7 +62,6 @@ means. Instead we opted for a system of chemotaxis, a means much
 better characterised.
 
 ## Project description
-[comment]: {< columns >}} 
 Briefly, our project was to engineer a strain of
 bacteria which would pick up rare earth metals (lanthanides) from the
 environment, then carry the metals to a point where they could be
@@ -80,12 +71,6 @@ relatively lower cost.
 *Methylobacterium extorquens* (*Mex*) has natural uptake and sensing
 mechanisms for lanthanides, which we exploited to make *Mex* an ideal
 scavenger.
-
-[comment]: {< column >}}
-
-[comment]: ![Chemotaxis animation](/posts/igem/chemotaxis.webp)
-
-[comment]: {< endcolumns >}}
 
 The project is described in more depth on our
 [website](https://2024.igem.wiki/warwick)[^4], including our design
@@ -163,14 +148,10 @@ interesting, with their use of DNA computing), the
 Jamboree was also my first real experience of presenting to a live
 public audience.
 
-[comment]: < columns >}} In the recording of our full talk, I walk in at the 7:00 mark and you can see my hand swinging like a pendulum (probably because I was told to move my hands).
-
 It's not immediately apparent but I'm actually a lot better than in
 the interview presentation, and I'm really quite proud of how I did
 here. A teammate even told me I seemed calm and relaxed afterwards,
 which was a surprise but rather high praise I felt.
-
-[comment]: < video src="presentation.mp4" width="100%" >}}
 
 ## Conclusion
 ![Booth signs meme](/posts/igem/boothsignsmeme.webp) 
