@@ -1,6 +1,6 @@
 +++
 date = '2024-06-05T21:37:17Z'
-draft = false
+draft = true
 title = 'Attempting to cure my eczema by: electrical shock'
 disableToc = true
 tags = ['Medicine', 'Eczema']
