@@ -70,17 +70,16 @@ medal](https://warwick.ac.uk/fac/sci/dcs/news/?newsItem=8ac672c492d39b5d0192e6ff
 at the 2024 Paris Jamboree. I wrote up my experiences of the project
 [here](/posts/igem).
 
-**Award for Computer Science—Gravesend Grammar School**:  During my
+**Senior Award for Computer Science—Gravesend Grammar School**:  During my
 time in Sixth Form, I was awarded the Kuldeep Singh Cheema trophy for
 Computer Science. In part, this was due to having achieved a perfect
 score in my final year software engineering project—the first to have
-ever been achieved in the school.
+ever been achieved in the school, and general academic achievement.
 
 ## Hobbies
 In my spare time I enjoy reading, hiking, baking, tennis, badminton,
 art, and chess.
 
 ## Contact
-Feel free to contact me as you like: \
 Email: `Aaron {at} aaronklee.com` \
 Signal: `@Aaron.255`
