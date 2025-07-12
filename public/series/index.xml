@@ -2,32 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Aaron Lee</title>
-    <link>//localhost:1313/series/</link>
+    <link>//www.aaronklee.com/series/</link>
     <description>Recent content in Series on Aaron Lee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 07 Feb 2025 17:48:38 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Feb 2025 17:48:38 +0000</lastBuildDate><atom:link href="//www.aaronklee.com/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>University</title>
-      <link>//localhost:1313/series/university/</link>
+      <link>//www.aaronklee.com/series/university/</link>
       <pubDate>Fri, 07 Feb 2025 17:48:38 +0000</pubDate>
-      <guid>//localhost:1313/series/university/</guid>
+      
+      <guid>//www.aaronklee.com/series/university/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Tech Rants</title>
-      <link>//localhost:1313/series/tech-rants/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/series/tech-rants/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Eczema</title>
-      <link>//localhost:1313/series/eczema/</link>
-      <pubDate>Wed, 05 Jun 2024 21:37:17 +0000</pubDate>
-      <guid>//localhost:1313/series/eczema/</guid>
-      <description></description>
-    </item>
+    
   </channel>
 </rss>

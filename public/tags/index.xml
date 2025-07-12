@@ -2,81 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aaron Lee</title>
-    <link>//localhost:1313/tags/</link>
+    <link>//www.aaronklee.com/tags/</link>
     <description>Recent content in Tags on Aaron Lee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 07 Feb 2025 17:48:38 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Feb 2025 17:48:38 +0000</lastBuildDate><atom:link href="//www.aaronklee.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>IGEM</title>
-      <link>//localhost:1313/tags/igem/</link>
+      <title>iGEM</title>
+      <link>//www.aaronklee.com/tags/igem/</link>
       <pubDate>Fri, 07 Feb 2025 17:48:38 +0000</pubDate>
-      <guid>//localhost:1313/tags/igem/</guid>
+      
+      <guid>//www.aaronklee.com/tags/igem/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Research</title>
-      <link>//localhost:1313/tags/research/</link>
+      <link>//www.aaronklee.com/tags/research/</link>
       <pubDate>Fri, 07 Feb 2025 17:48:38 +0000</pubDate>
-      <guid>//localhost:1313/tags/research/</guid>
+      
+      <guid>//www.aaronklee.com/tags/research/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Synthetic Biology</title>
-      <link>//localhost:1313/tags/synthetic-biology/</link>
+      <link>//www.aaronklee.com/tags/synthetic-biology/</link>
       <pubDate>Fri, 07 Feb 2025 17:48:38 +0000</pubDate>
-      <guid>//localhost:1313/tags/synthetic-biology/</guid>
+      
+      <guid>//www.aaronklee.com/tags/synthetic-biology/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Warwick</title>
-      <link>//localhost:1313/tags/warwick/</link>
+      <link>//www.aaronklee.com/tags/warwick/</link>
       <pubDate>Fri, 07 Feb 2025 17:48:38 +0000</pubDate>
-      <guid>//localhost:1313/tags/warwick/</guid>
+      
+      <guid>//www.aaronklee.com/tags/warwick/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Akll.org</title>
-      <link>//localhost:1313/tags/akll.org/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/tags/akll.org/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cybersecurity</title>
-      <link>//localhost:1313/tags/cybersecurity/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/tags/cybersecurity/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy</title>
-      <link>//localhost:1313/tags/privacy/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/tags/privacy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Technology</title>
-      <link>//localhost:1313/tags/technology/</link>
-      <pubDate>Thu, 06 Feb 2025 17:17:05 +0000</pubDate>
-      <guid>//localhost:1313/tags/technology/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Eczema</title>
-      <link>//localhost:1313/tags/eczema/</link>
-      <pubDate>Wed, 05 Jun 2024 21:37:17 +0000</pubDate>
-      <guid>//localhost:1313/tags/eczema/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Medicine</title>
-      <link>//localhost:1313/tags/medicine/</link>
-      <pubDate>Wed, 05 Jun 2024 21:37:17 +0000</pubDate>
-      <guid>//localhost:1313/tags/medicine/</guid>
-      <description></description>
-    </item>
+    
   </channel>
 </rss>
