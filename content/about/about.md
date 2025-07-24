@@ -5,9 +5,10 @@ title = 'About'
 disableToc = false
 +++
 
-Hello, my name is Aaron; I am a student at the University of
-Warwick. I study a combination of computer science, biomedical and
-systems engineering, and molecular and systems biology.
+Hello, my name is Aaron; I am an incoming PKPD industrial placement
+student at AstraZeneca, and a student at the University of Warwick. I
+study a combination of computer science, biomedical and systems
+engineering, and molecular and systems biology.
 
 My main interests lie in [synthetic/engineering
 biology](https://en.wikipedia.org/wiki/Synthetic_biology), in the
@@ -26,20 +27,21 @@ inspired both my A-level choices (Biology, Chemistry, CompSci, Maths)
 and choice of degree.
 
 I actively engage in interdisciplinary research projects, having
-[participated](/posts/igem) in iGEM 2024 as a computational biologist
-to engineer a bacterial system for lanthanide transport, as well as
-smaller projects such as applying machine learning to butterfly wing
-image segmentation and analysis.
+participated in [iGEM 2024](/posts/igem) as a computational
+biologist to engineer a bacterial system for lanthanide transport, as
+well as smaller projects such as applying machine learning to
+butterfly wing image segmentation and analysis.
 
 I am currently working on a group research project for the use of
-genomic sequencing data in optimal control of immunotherapy.
+transcriptomic sequencing data in optimal control of engineered
+cellular immunotherapy.
 
 ## Skills
-For software engineering, I am proficient in a variety of general purpose
-programming languages, including C, Java, Julia, MATLAB, Scheme/Lisp,
-and Python. I develop mainly on Linux, and have extensive experience
-in Unix-like system/server maintenance and administration. I am
-familiar with modern methodologies such as AGILE and scrum.
+I am proficient in a variety of general purpose programming languages
+including C, Java, Julia, MATLAB, Scheme/Lisp, and Python. I develop
+mainly on Linux, and have extensive experience in Unix-like
+system/server maintenance and administration (Debian, Alpine Linux,
+OpenBSD, etc.).
 
 Of these, I have used Julia, MATLAB, and Java for mathematical and
 computational systems modelling for biological systems, involving a
@@ -47,14 +49,14 @@ range of methodologies including ODE-based modelling and agent-based
 modelling.
 
 Closer to the hardware, I am proficient in Verilog for FPGA
-programmable logic design. For electronics/robotics, I have
-used Raspberry Pi SBCs and Arduinos in a number of personal
-projects—such as 3D-printed animatronic puppets and automatons—and
-often hack together electronic systems for the odd problem life throws
-in my way. In my first year of university for example, I constructed a
+programmable logic design. For electronics/robotics, I have used
+Raspberry Pi SBCs and Arduinos in a number of personal projects—such
+as 3D-printed animatronic puppets and automatons—and often hack
+together electronic systems for the odd problem life throws in my
+way. In my first year of university for example, I constructed a
 door-activated alarm system to stop myself from leaving my key inside
-my room. I was promptly made to take it down due to its resemblance to
-a bomb.
+my room. I promptly had to take it down due to its resemblance to a
+bomb.
 
 I also have some small experience in the wet lab, having skills in
 pipetting, PCR, gel electrophoresis, plasmid preparation, and other
@@ -78,8 +80,8 @@ first to have ever been achieved in the school, and general academic
 achievement, for which I was also awarded the Peter Jones prize.
 
 ## Hobbies
-In my spare time I enjoy reading, hiking, baking, tennis, badminton,
-art, and chess.
+In my spare time I enjoy reading, hiking, baking,
+badminton, tennis, art, and chess.
 
 ## Contact
 Email: `Aaron {at} aaronklee.com` \

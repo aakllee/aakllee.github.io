@@ -166,12 +166,11 @@ learn more or shout at me, feel free to reach out
 ([contact](/about/)).
 
 	
-[^1]: My Computer Science / Engineering background shining through
-    there.
+[^1]: My Computer Science / Engineering background evident there.
 
 [^2]: Including a joke about the 'price of fish' as a transition
     between the two hahahaha... I'm so sorry. I still think it was
-    funny though.
+    funny. No-one laughed though. 
 
 [^3]: Website graphics and code designed and written by me, content
     written by all team members.
