@@ -11,7 +11,7 @@ tags = ['Synthetic Biology', 'iGEM', 'Warwick', 'Research']
 
 From February to October 2024, I competed in the [international
 Genetically Engineered Machines (iGEM)
-competition](https://competition.igem.org/)—where competitors
+competition](https://competition.igem.org/), where competitors
 developed engineered biological solutions for a variety of problem
 spaces.
 
@@ -19,14 +19,14 @@ I was a member of the 2024 University of Warwick team,
 [BEACON](https://2024.igem.wiki/warwick), working together to engineer
 bacteria with the abilities to scavenge for rare earth metals, then to
 transport them to a singular point for collection to be recycled. We
-were one of 210 teams[^1] to be awarded a gold medal at the Paris
+were one of 210 teams to be awarded a gold medal at the Paris
 Jamboree.
 
 This was an incredible experience, and one that I would recommend
 anyone interested in synthetic/engineering biology to undertake. To
-watch your team's idea go from nothing to a working, real physical
-thing, whilst meeting so many other passionate, brilliant people is a
-rare and precious opportunity.
+watch your team's idea go from just an idea to a working, real
+physical thing, all whilst meeting so many other passionate, brilliant
+people is a rare and precious opportunity.
 
 
 ## Project selection
@@ -36,13 +36,13 @@ application stage, individual presentation, and group interview.
 
 The task was to present an area of synthetic biology you were
 passionate about, and a potential synbio solution for the local
-area. I gave my presentation on biological computers[^2], and
-potential diagnostics for infected salmon in fish farms[^3]. We were
+area. I gave my presentation on biological computers[^1], and
+potential diagnostics for infected salmon in fish farms[^2]. We were
 then randomly assigned groups and made to perform a group presentation
 on one of the solutions anyone had presented.
 
-Being the double-A Aaron I am, I presented first—which honestly may
-have saved me. Watching everyone else's beautifully crafted,
+Being the double-A Aaron I am, I presented first—which was a big help
+in hindsight. Watching everyone else's beautifully crafted,
 enthusiastic and confident presentations was more than a little
 demoralising. I began to think it would be impossible to be chosen
 over the others. This was still only a few months into my first-year,
@@ -54,10 +54,10 @@ place on the team, I just about launched through the ceiling when the
 e-mail came through.
 
 Over the following weeks we then met the other team members,
-brainstormed, and settled on the final idea. We then considered
-possible methods of bacterial movement. An interesting idea was using
-gas vesicles (pictured above) to make the bacteria float, however in
-the interest of feasibility we chose not to explore such uncertain
+brainstormed, and settled on the final idea. We considered possible
+methods of bacterial movement. An interesting idea was using gas
+vesicles (pictured above) to make the bacteria float, however in the
+interest of feasibility we chose not to explore such uncertain
 means. Instead we opted for a system of chemotaxis, a means much
 better characterised.
 
@@ -73,7 +73,7 @@ mechanisms for lanthanides, which we exploited to make *Mex* an ideal
 scavenger.
 
 The project is described in more depth on our
-[website](https://2024.igem.wiki/warwick)[^4], including our design
+[website](https://2024.igem.wiki/warwick)[^3], including our design
 process, results, and protocols.
 
 
@@ -91,7 +91,7 @@ Francesco Papini); and the agent-based model (OOP, me). We document
 the models [here](https://2024.igem.wiki/warwick/model).
 
 At the start of iGEM I was woefully incompetent in mathematical
-modelling, and knew next to nothing about agent-based modelling—I
+modelling, and knew next to nothing about agent-based modelling. I
 could barely tell you what a differential equation was, let alone use
 them to model anything.
 
@@ -126,19 +126,16 @@ end we were sitting by the Seine together, and it was almost too hard
 to say goodbye. 
 
 There was a real sort of spirit in the event too, with at least 2
-people dressed as cows (*cough Exeter cough*), a walking corn cob, a
-giant mosquito... and an astonishingly large number of memes being
-generated *live as the awards were being announced* (courtesy of iGEM
-Düsseldorf). And it was really sweet too, the support everyone gave to
-the high school teams as they were presenting in the awards
-ceremony[^6]. Even the mess of the tech organisation and €10
-sandwiches had a sort of charm...
+people dressed as cows, a walking corn cob, a giant mosquito... and an
+astonishing number of memes being generated live as the awards
+were being announced (courtesy of iGEM Düsseldorf). And it was really
+sweet too, the support everyone gave to the high school teams as they
+were presenting in the awards ceremony[^6]. Even the mess of the tech
+organisation and €10 sandwiches had a sort of charm...
 
 
 [^6]: The applause and cheering might have made things worse, but it's
 	the thought that counts.
-
-
 
 ## Presentation
 ![Me presenting](presentation.webp) Whilst it was great to walk around
@@ -168,19 +165,15 @@ and supervisors for making everything possible. For anyone wanting to
 learn more or shout at me, feel free to reach out
 ([contact](/about/)).
 
-
-[^1]: I mention this number not to undercut our accomplishments, but
-    more as a testament to the enthusiasm and incredible skill that
-    each and every team brought to the competition.
 	
-[^2]: My Computer Science / Engineering background shining through
+[^1]: My Computer Science / Engineering background shining through
     there.
 
-[^3]: Including a joke about the 'price of fish' as a transition
+[^2]: Including a joke about the 'price of fish' as a transition
     between the two hahahaha... I'm so sorry. I still think it was
     funny though.
 
-[^4]: Website graphics and code designed and written by me, content
+[^3]: Website graphics and code designed and written by me, content
     written by all team members.
 
 [^7]: Administrivia.

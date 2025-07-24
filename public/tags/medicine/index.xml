@@ -2,18 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Medicine on Aaron Lee</title>
-    <link>//localhost:1313/tags/medicine/</link>
+    <link>//www.aaronklee.com/tags/medicine/</link>
     <description>Recent content in Medicine on Aaron Lee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Wed, 05 Jun 2024 21:37:17 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/medicine/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Mar 2025 22:06:51 +0000</lastBuildDate><atom:link href="//www.aaronklee.com/tags/medicine/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Attempting to cure my eczema by electrical shock</title>
-      <link>//localhost:1313/posts/eczematens/</link>
-      <pubDate>Wed, 05 Jun 2024 21:37:17 +0000</pubDate>
-      <guid>//localhost:1313/posts/eczematens/</guid>
-      <description>&lt;p&gt;For the past 10 years or so, I have been suffering from moderate&#xA;eczema. As anyone with eczema would know, this is incredibly&#xA;irritating to deal with, and practically impossible to treat.&lt;/p&gt;&#xA;&lt;p&gt;But we can try. So with the topical corticosteroids prescribed by my&#xA;doctor only serving to temporarily quell the condition, with a risk of&#xA;withdrawal syndrome, I elected to look for other solutions.&lt;/p&gt;&#xA;&lt;p&gt;Helge Bjørnå and Birger Kaada (1987) describe an experimental&#xA;treatment by transcutaneous electrical nerve stimulation (TENS). These&#xA;are available to consumers as a TENS unit, which is a little box with&#xA;dials that can control the strength and frequency of electrical pulses&#xA;sent to pads attached to your skin. This was intended to improve&#xA;circulation in the skin and thus promote healing and relief of&#xA;itching. After 2 years, they observed significant improvement in both,&#xA;though this was only tested in a singular patient.&lt;/p&gt;</description>
+      <title>Attempting to cure my eczema by: theoretical gene therapy</title>
+      <link>//www.aaronklee.com/posts/eczemagenetherapy/</link>
+      <pubDate>Wed, 05 Mar 2025 22:06:51 +0000</pubDate>
+      
+      <guid>//www.aaronklee.com/posts/eczemagenetherapy/</guid>
+      <description></description>
     </item>
+    
+    <item>
+      <title>Attempting to cure my eczema by: electrical shock</title>
+      <link>//www.aaronklee.com/posts/eczematens/</link>
+      <pubDate>Wed, 05 Jun 2024 21:37:17 +0000</pubDate>
+      
+      <guid>//www.aaronklee.com/posts/eczematens/</guid>
+      <description>For the past 10 years or so, I have been suffering from moderate eczema. As anyone with eczema would know, this is incredibly irritating to deal with, and practically impossible to treat.
+But we can try. So with the topical corticosteroids prescribed by my doctor only serving to temporarily quell the condition, with a risk of withdrawal syndrome, I elected to look for other solutions.
+Helge Bjørnå and Birger Kaada (1987) describe an experimental treatment by transcutaneous electrical nerve stimulation (TENS).</description>
+    </item>
+    
   </channel>
 </rss>
